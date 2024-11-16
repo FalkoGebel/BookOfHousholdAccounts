@@ -31,5 +31,35 @@ namespace BohaLibrary
                 reader?.Close();
             }
         }
+
+        /// <summary>
+        /// Writes the given object instance to a Json file.
+        /// <para>Object type must have a parameterless constructor.</para>
+        /// <para>Only Public properties and variables will be written to the file. These can be any type though, even other classes.</para>
+        /// <para>If there are public properties/variables that you do not want written to the file, decorate them with the [JsonIgnore] attribute.</para>
+        /// </summary>
+        /// <typeparam name="T">The type of object being written to the file.</typeparam>
+        /// <param name="filePath">The file path to write the object instance to.</param>
+        /// <param name="objectToWrite">The object instance to write to the file.</param>
+        public static void WriteToJsonFile<T>(string filePath, T objectToWrite) where T : new()
+        {
+            TextWriter? writer = null;
+
+            try
+            {
+                FileStream fs = new(filePath, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
+                var contentsToWriteToFile = JsonConvert.SerializeObject(objectToWrite);
+                writer = new StreamWriter(fs);
+                writer.Write(contentsToWriteToFile);
+            }
+            catch (Exception e)
+            {
+                throw new InvalidOperationException($"File error - {e.Message}");
+            }
+            finally
+            {
+                writer?.Close();
+            }
+        }
     }
 }
