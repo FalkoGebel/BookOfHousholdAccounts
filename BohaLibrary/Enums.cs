@@ -1,6 +1,6 @@
 ﻿namespace BohaLibrary
 {
-    enum BookEntryType
+    public enum BookEntryType
     {
         Deposit,
         Payout

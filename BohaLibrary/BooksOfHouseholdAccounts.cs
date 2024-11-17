@@ -13,7 +13,7 @@ namespace BohaLibrary
         /// <exception cref="ArgumentException">Thrown, if the given book name already exists.</exception>
         public void AddBook(string bookName)
         {
-            if (BookExists(bookName))
+            if (Names.Contains(bookName))
                 throw new ArgumentException($"Book \"{bookName}\" already exists.");
 
             Names.Add(bookName);
@@ -26,13 +26,9 @@ namespace BohaLibrary
         /// <exception cref="ArgumentException">Thrown, if the given book name does not exist.</exception>
         public void DeleteBook(string bookName)
         {
-            if (!BookExists(bookName))
+            if (!Names.Remove(bookName))
                 throw new ArgumentException($"Book \"{bookName}\" does not exist.");
-
-            Names.Remove(bookName);
         }
-
-        private bool BookExists(string bookName) => Names.Contains(bookName);
 
         /// <summary>
         /// Updates the list of names from the given file.

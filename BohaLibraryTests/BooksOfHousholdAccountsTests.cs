@@ -11,25 +11,36 @@ namespace BohaLibraryTests
         [TestMethod]
         public void TestAddBookTwoTimesAndGetArgumentException()
         {
+            // Arrange
             BooksOfHouseholdAccounts books = new();
             books.AddBook("book1");
+
+            // Act
             ArgumentException ae = Assert.ThrowsException<ArgumentException>(() => books.AddBook("book1"));
+
+            // Assert
             ae.Message.Should().Be("Book \"book1\" already exists.");
         }
 
         [TestMethod]
         public void TestDeleteNotExistingBookAndGetArgumentException()
         {
+            // Arrange
             BooksOfHouseholdAccounts books = new();
             books.AddBook("book1");
             books.AddBook("book2");
+
+            // Act
             ArgumentException ae = Assert.ThrowsException<ArgumentException>(() => books.DeleteBook("book3"));
+
+            // Assert
             ae.Message.Should().Be("Book \"book3\" does not exist.");
         }
 
         [TestMethod]
         public void TestSaveToAndLoadFromFile()
         {
+            // Arrange
             BooksOfHouseholdAccounts books = new();
             books.AddBook("book1");
             books.AddBook("book2");
@@ -37,9 +48,11 @@ namespace BohaLibraryTests
             books.DeleteBook("book2");
             books.SaveToFile(_folderpath);
 
+            // Act
             BooksOfHouseholdAccounts loadedBooks = new();
             loadedBooks.LoadFromFile(_folderpath);
 
+            // Assert
             loadedBooks.Should().BeEquivalentTo(books);
         }
     }
