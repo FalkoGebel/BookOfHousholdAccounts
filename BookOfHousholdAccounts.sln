@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projektmappenelemente", "Pr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BohaLibraryTests", "BohaLibraryTests\BohaLibraryTests.csproj", "{C2297313-F561-45AE-86BF-B45FF7EDDCCB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BohaWpf", "BohaWpf\BohaWpf.csproj", "{CBF9F498-425D-41AC-998F-E9E101D3EB6C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{C2297313-F561-45AE-86BF-B45FF7EDDCCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2297313-F561-45AE-86BF-B45FF7EDDCCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2297313-F561-45AE-86BF-B45FF7EDDCCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBF9F498-425D-41AC-998F-E9E101D3EB6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBF9F498-425D-41AC-998F-E9E101D3EB6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBF9F498-425D-41AC-998F-E9E101D3EB6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBF9F498-425D-41AC-998F-E9E101D3EB6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
