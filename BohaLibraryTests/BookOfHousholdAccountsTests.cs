@@ -14,7 +14,7 @@ namespace BohaLibraryTests
         public void TestAddCategory(BookEntryType entryType)
         {
             // Arrange
-            BookOfHousholdAccounts book = new(_folderpath, "book1");
+            BookOfHouseholdAccounts book = new(_folderpath, "book1");
             string categoryName = "category1";
 
             // Act
@@ -32,7 +32,7 @@ namespace BohaLibraryTests
         public void TestAddCategoryTwoTimesAndGetArgumentException(BookEntryType entryType)
         {
             // Arrange
-            BookOfHousholdAccounts book = new(_folderpath, "book1");
+            BookOfHouseholdAccounts book = new(_folderpath, "book1");
             string categoryName = "category1";
             book.AddCategory(entryType, categoryName);
 
@@ -50,7 +50,7 @@ namespace BohaLibraryTests
         public void TestDeleteNotExistingCategoryAndGetArgumentException(BookEntryType entryType)
         {
             // Arrange
-            BookOfHousholdAccounts book = new(_folderpath, "book1");
+            BookOfHouseholdAccounts book = new(_folderpath, "book1");
             book.AddCategory(entryType, "category1");
             book.AddCategory(entryType, "category2");
             string categoryNameToDelete = "category3";
@@ -68,7 +68,7 @@ namespace BohaLibraryTests
         public void TestAddBookEntryWithoutCategoryNameAndGetArgumentException(BookEntryType entryType)
         {
             // Arrange
-            BookOfHousholdAccounts book = new(_folderpath, "book1");
+            BookOfHouseholdAccounts book = new(_folderpath, "book1");
             DateTime postingDate = new(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
 
             // Act
@@ -88,7 +88,7 @@ namespace BohaLibraryTests
         public void TestAddBookEntryWithInvalidCategoryNameAndGetArgumentException(BookEntryType entryType)
         {
             // Arrange
-            BookOfHousholdAccounts book = new(_folderpath, "book1");
+            BookOfHouseholdAccounts book = new(_folderpath, "book1");
             DateTime postingDate = new(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
             string categoryName = "category1";
 
@@ -115,7 +115,7 @@ namespace BohaLibraryTests
         public void TestAddBookEntryWithInvalidAmountAndGetArgumentException(BookEntryType entryType, double amountDouble)
         {
             // Arrange
-            BookOfHousholdAccounts book = new(_folderpath, "book1");
+            BookOfHouseholdAccounts book = new(_folderpath, "book1");
             DateTime postingDate = new(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
             string categoryName = "category1";
             book.AddCategory(entryType, categoryName);
@@ -140,7 +140,7 @@ namespace BohaLibraryTests
         public void TestAddBookEntryWithoutPostingDate(string categoryName, string memo, double amountDouble, BookEntryType entryType)
         {
             // Arrange
-            BookOfHousholdAccounts book = new(_folderpath, "book1");
+            BookOfHouseholdAccounts book = new(_folderpath, "book1");
             DateTime today = new(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
             decimal amount = (decimal)amountDouble;
             book.AddCategory(entryType, categoryName);
@@ -169,7 +169,7 @@ namespace BohaLibraryTests
         public void TestAddBookEntryWithPostingDate(string categoryName, string memo, double amountDouble, BookEntryType entryType, string postingDateString)
         {
             // Arrange
-            BookOfHousholdAccounts book = new(_folderpath, "book1");
+            BookOfHouseholdAccounts book = new(_folderpath, "book1");
             DateTime postingDateParsed = DateTime.ParseExact(postingDateString, "dd.mm.yy", null);
             DateTime postingDate = new(postingDateParsed.Year, postingDateParsed.Month, postingDateParsed.Day);
             decimal amount = (decimal)amountDouble;
@@ -195,7 +195,7 @@ namespace BohaLibraryTests
         public void TestDeleteBookEntryWithInvalidId()
         {
             // Arrange
-            BookOfHousholdAccounts book = new(_folderpath, "book1");
+            BookOfHouseholdAccounts book = new(_folderpath, "book1");
 
             // Act
             ArgumentException ae;
@@ -211,7 +211,7 @@ namespace BohaLibraryTests
         public void TestDeleteBookEntry(BookEntryType entryType)
         {
             // Arrange
-            BookOfHousholdAccounts book = new(_folderpath, "book1");
+            BookOfHouseholdAccounts book = new(_folderpath, "book1");
             string categoryName = "category1";
             decimal amount = 11.11M;
             string memo = "memo1";
@@ -229,20 +229,31 @@ namespace BohaLibraryTests
             book.Entries.Count.Should().Be(0);
         }
 
-        //[TestMethod]
-        //public void TestSaveToAndLoadFromFile()
-        //{
-        //    BooksOfHouseholdAccounts books = new();
-        //    books.AddBook("book1");
-        //    books.AddBook("book2");
-        //    books.AddBook("book3");
-        //    books.DeleteBook("book2");
-        //    books.SaveToFile(_folderpath);
+        [TestMethod]
+        public void TestSaveToAndLoadFromFile()
+        {
+            string bookName = "book1",
+                   categoryNameDeposit = "category1",
+                   categoryNamePayout = "category2";
 
-        //    BooksOfHouseholdAccounts loadedBooks = new();
-        //    loadedBooks.LoadFromFile(_folderpath);
+            BookOfHouseholdAccounts book = new(_folderpath, bookName);
+            book.AddCategory(BookEntryType.Deposit, categoryNameDeposit);
+            book.AddCategory(BookEntryType.Payout, categoryNamePayout);
+            book.AddDepositBookEntry(categoryNameDeposit, 11.11M, "", null);
+            book.AddDepositBookEntry(categoryNameDeposit, 99.99M, "memo1", null);
+            book.AddDepositBookEntry(categoryNameDeposit, 11001.01M, "memo2", new DateTime(2023, 12, 1));
+            book.AddDepositBookEntry(categoryNameDeposit, 00.01M, "memo3", new DateTime(2024, 10, 31));
+            book.AddPayoutBookEntry(categoryNamePayout, 100.00M, "", null);
+            book.AddPayoutBookEntry(categoryNamePayout, 999.99M, "memo1", null);
+            book.AddPayoutBookEntry(categoryNamePayout, 12.34M, "memo2", new DateTime(2023, 6, 17));
+            book.AddPayoutBookEntry(categoryNamePayout, 1.00M, "memo3", new DateTime(2024, 9, 8));
 
-        //    loadedBooks.Should().BeEquivalentTo(books);
-        //}
+            book.SaveToFile();
+
+            BookOfHouseholdAccounts loadedBook = new(_folderpath, bookName);
+            loadedBook.LoadFromFile();
+
+            loadedBook.Should().BeEquivalentTo(book);
+        }
     }
 }
