@@ -1,25 +1,23 @@
-﻿using BohaWpf.Utils;
+﻿using BohaWpf.Views;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace BohaWpf.ViewModels
 {
-    public class MainViewModel : PropertyChangedBase
+    public partial class MainViewModel : ObservableObject
     {
-        private string _name = string.Empty;
+        [ObservableProperty]
+        private string? name;
 
-        public string Name
+        [RelayCommand]
+        private void ChooseBook()
         {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                if (_name == value)
-                    return;
-
-                _name = value;
-                NotifyOfPropertyChange(nameof(Name));
-            }
+            var chooseBookView = new ChooseBookView();
+            chooseBookView.ShowDialog();
+            //var chooseBookViewModel = new ChooseBookViewModel(["book from MainViewModel"]);
+            ////chooseBookViewModel.InitView();
+            ////chooseBookViewModel.LoadBooks();
+            //chooseBookViewModel.ShowView();
         }
     }
 }

@@ -61,20 +61,38 @@ namespace BohaWpf.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Current book ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Choose Book ähnelt.
         /// </summary>
-        public static string CurrentBookLabel {
+        public static string ChooseBookView_Title {
             get {
-                return ResourceManager.GetString("CurrentBookLabel", resourceCulture);
+                return ResourceManager.GetString("ChooseBookView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Choose Book ähnelt.
+        /// </summary>
+        public static string MainView_ChoooseBookButtonToolTip {
+            get {
+                return ResourceManager.GetString("MainView_ChoooseBookButtonToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Current Book ähnelt.
+        /// </summary>
+        public static string MainView_CurrentBookLabel {
+            get {
+                return ResourceManager.GetString("MainView_CurrentBookLabel", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die BOHA - Book Of Household Accounts ähnelt.
         /// </summary>
-        public static string MainWindowTitle {
+        public static string MainView_Title {
             get {
-                return ResourceManager.GetString("MainWindowTitle", resourceCulture);
+                return ResourceManager.GetString("MainView_Title", resourceCulture);
             }
         }
     }
