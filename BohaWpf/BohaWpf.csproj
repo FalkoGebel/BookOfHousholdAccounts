@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Properties\Literals.de-DE.Designer.cs">
       <DependentUpon>Literals.de-DE.resx</DependentUpon>
       <DesignTime>True</DesignTime>

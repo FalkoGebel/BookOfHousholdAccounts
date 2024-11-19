@@ -7,12 +7,5 @@ namespace BohaWpf.Views
     /// </summary>
     public partial class MainView : Window
     {
-        // TODO - setup the MainViewModel data
-
-        //public MainView()
-        //{
-        //    InitializeComponent();
-
-        //}
     }
 }
