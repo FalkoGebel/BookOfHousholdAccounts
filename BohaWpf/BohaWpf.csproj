@@ -13,6 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BohaLibrary\BohaLibrary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Properties\Literals.de-DE.Designer.cs">
       <DependentUpon>Literals.de-DE.resx</DependentUpon>
       <DesignTime>True</DesignTime>
