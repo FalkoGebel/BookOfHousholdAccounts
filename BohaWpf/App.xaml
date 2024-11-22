@@ -4,6 +4,17 @@
              xmlns:local="clr-namespace:BohaWpf"
              StartupUri="Views/MainView.xaml">
     <Application.Resources>
-         
+        <Style TargetType="{x:Type Control}" x:Key="baseStyle">
+            <Setter Property="FontFamily" Value="Verdana" />
+            <Setter Property="FontSize" Value="20" />
+        </Style>
+        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource baseStyle}">
+            <Setter Property="Background" Value="#4F5D2F" />
+            <Setter Property="BorderBrush" Value="#13070C" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Foreground" Value="#D7DFC1" />
+            <Setter Property="Padding" Value="5" />
+        </Style>
+        <Style TargetType="{x:Type Label}" BasedOn="{StaticResource baseStyle}" />
     </Application.Resources>
 </Application>
