@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.IO;
+using System.Windows;
 
 namespace BohaWpf
 {
@@ -9,7 +10,7 @@ namespace BohaWpf
     {
         App()
         {
-            Properties["PathFiles"] = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData);
+            Properties["PathFiles"] = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData), "BOHA");
         }
     }
 }

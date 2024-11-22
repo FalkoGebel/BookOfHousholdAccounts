@@ -9,6 +9,19 @@ namespace BohaLibraryTests
         private static readonly string _folderpath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/temp/";
 
         [TestMethod]
+        public void TestAddEmptyStringBookAndGetArgumentException()
+        {
+            // Arrange
+            BooksOfHouseholdAccounts books = new();
+
+            // Act
+            ArgumentException ae = Assert.ThrowsException<ArgumentException>(() => books.AddBook(""));
+
+            // Assert
+            ae.Message.Should().Be("Book name must not be an empty string.");
+        }
+
+        [TestMethod]
         public void TestAddBookTwoTimesAndGetArgumentException()
         {
             // Arrange

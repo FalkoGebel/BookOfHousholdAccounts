@@ -61,11 +61,29 @@ namespace BohaWpf.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die The book &quot;&lt;BOOKNAME&gt;&quot; and all its data will be deleted. Continue? ähnelt.
+        /// </summary>
+        public static string ChoosBookView_DeleteConfirmText {
+            get {
+                return ResourceManager.GetString("ChoosBookView_DeleteConfirmText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Choose Book ähnelt.
         /// </summary>
         public static string ChooseBookView_Title {
             get {
                 return ResourceManager.GetString("ChooseBookView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Confirm ähnelt.
+        /// </summary>
+        public static string ConfirmWindowTitle {
+            get {
+                return ResourceManager.GetString("ConfirmWindowTitle", resourceCulture);
             }
         }
         

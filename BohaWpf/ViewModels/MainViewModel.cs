@@ -7,17 +7,14 @@ namespace BohaWpf.ViewModels
     public partial class MainViewModel : ObservableObject
     {
         [ObservableProperty]
-        private string? name;
+        private string name = string.Empty;
 
         [RelayCommand]
         private void ChooseBook()
         {
             var chooseBookView = new ChooseBookView();
             chooseBookView.ShowDialog();
-            //var chooseBookViewModel = new ChooseBookViewModel(["book from MainViewModel"]);
-            ////chooseBookViewModel.InitView();
-            ////chooseBookViewModel.LoadBooks();
-            //chooseBookViewModel.ShowView();
+            Name = ((ChooseBookViewModel)chooseBookView.DataContext).ChoosenBook;
         }
     }
 }

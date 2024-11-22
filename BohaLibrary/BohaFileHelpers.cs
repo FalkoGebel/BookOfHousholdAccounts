@@ -11,7 +11,7 @@ namespace BohaLibrary
         /// <typeparam name="T">The type of object to read from the file.</typeparam>
         /// <param name="filePath">The file path to read the object instance from.</param>
         /// <returns>Returns a new instance of the object read from the Json file.</returns>
-        public static T ReadFromJsonFile<T>(string filePath) where T : new()
+        internal static T ReadFromJsonFile<T>(string filePath) where T : new()
         {
             TextReader? reader = null;
 
@@ -41,13 +41,13 @@ namespace BohaLibrary
         /// <typeparam name="T">The type of object being written to the file.</typeparam>
         /// <param name="filePath">The file path to write the object instance to.</param>
         /// <param name="objectToWrite">The object instance to write to the file.</param>
-        public static void WriteToJsonFile<T>(string filePath, T objectToWrite) where T : new()
+        internal static void WriteToJsonFile<T>(string filePath, T objectToWrite) where T : new()
         {
             TextWriter? writer = null;
 
             try
             {
-                FileStream fs = new(filePath, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
+                FileStream fs = new(filePath, FileMode.Create, FileAccess.Write, FileShare.None);
                 var contentsToWriteToFile = JsonConvert.SerializeObject(objectToWrite);
                 writer = new StreamWriter(fs);
                 writer.Write(contentsToWriteToFile);
@@ -60,6 +60,12 @@ namespace BohaLibrary
             {
                 writer?.Close();
             }
+        }
+
+        internal static void DeleteFile(string filePath)
+        {
+            if (File.Exists(filePath))
+                File.Delete(filePath);
         }
     }
 }

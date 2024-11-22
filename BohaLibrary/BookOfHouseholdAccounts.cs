@@ -123,5 +123,10 @@ namespace BohaLibrary
 
             BohaFileHelpers.WriteToJsonFile(FilePath, bookModel);
         }
+
+        /// <summary>
+        /// Deletes the corresponding file.
+        /// </summary>
+        public void DeleteFile() => BohaFileHelpers.DeleteFile(FilePath);
     }
 }
