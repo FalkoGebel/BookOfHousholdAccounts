@@ -117,8 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ChoosBookView_DeleteConfirmText" xml:space="preserve">
+    <value>The book "&lt;BOOKNAME&gt;" and all its data will be deleted. Continue?</value>
+  </data>
   <data name="ChooseBookView_Title" xml:space="preserve">
     <value>Choose Book</value>
+  </data>
+  <data name="ConfirmWindowTitle" xml:space="preserve">
+    <value>Confirm</value>
   </data>
   <data name="MainView_ChoooseBookButtonToolTip" xml:space="preserve">
     <value>Choose Book</value>

@@ -13,6 +13,9 @@ namespace BohaLibrary
         /// <exception cref="ArgumentException">Thrown, if the given book name already exists.</exception>
         public void AddBook(string bookName)
         {
+            if (bookName == string.Empty)
+                throw new ArgumentException("Book name must not be an empty string.");
+
             if (Names.Contains(bookName))
                 throw new ArgumentException($"Book \"{bookName}\" already exists.");
 
@@ -37,6 +40,8 @@ namespace BohaLibrary
         /// <param name="fileName">The file to update the names from. If not set, then "boha_books.json" is used.</param>
         public void LoadFromFile(string path, string fileName = "boha_books.json")
         {
+            Directory.CreateDirectory(path);
+
             BooksOfHouseholdAccountsModel books = BohaFileHelpers.ReadFromJsonFile<BooksOfHouseholdAccountsModel>(Path.Combine(path, fileName));
             Names = [.. books.Names];
         }
@@ -48,6 +53,8 @@ namespace BohaLibrary
         /// <param name="fileName">The file to save the names to. If not set, then "boha_books.json" is used.</param>
         public void SaveToFile(string path, string fileName = "boha_books.json")
         {
+            Directory.CreateDirectory(path);
+
             BohaFileHelpers.WriteToJsonFile(Path.Combine(path, fileName), new BooksOfHouseholdAccountsModel() { Names = [.. Names] });
         }
     }
