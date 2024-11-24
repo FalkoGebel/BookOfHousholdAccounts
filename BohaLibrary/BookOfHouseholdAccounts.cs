@@ -99,10 +99,13 @@ namespace BohaLibrary
         }
 
         /// <summary>
-        /// Updates the book from the corresponding file.
+        /// Updates the book from the corresponding file. If it does not exist, SaveToFile will be called to save the empty book first.
         /// </summary>
         public void LoadFromFile()
         {
+            if (!File.Exists(FilePath))
+                SaveToFile();
+
             BookOfHouseholdAccountsModel bookModel = BohaFileHelpers.ReadFromJsonFile<BookOfHouseholdAccountsModel>(FilePath);
             Name = bookModel.Name;
             Categories = bookModel.Categories.Select(c => new Category { EntryType = c.EntryType, Name = c.Name }).ToList();

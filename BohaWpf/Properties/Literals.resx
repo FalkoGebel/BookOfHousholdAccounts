@@ -132,6 +132,15 @@
   <data name="MainView_CurrentBookLabel" xml:space="preserve">
     <value>Current Book</value>
   </data>
+  <data name="MainView_EditCategoriesButtonToolTip" xml:space="preserve">
+    <value>Edit Categories</value>
+  </data>
+  <data name="MainView_EntryTypes_Deposit" xml:space="preserve">
+    <value>Deposit</value>
+  </data>
+  <data name="MainView_EntryTypes_Payout" xml:space="preserve">
+    <value>Payout</value>
+  </data>
   <data name="MainView_Title" xml:space="preserve">
     <value>BOHA - Book Of Household Accounts</value>
   </data>

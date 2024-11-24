@@ -106,6 +106,33 @@ namespace BohaWpf.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Edit Categories ähnelt.
+        /// </summary>
+        public static string MainView_EditCategoriesButtonToolTip {
+            get {
+                return ResourceManager.GetString("MainView_EditCategoriesButtonToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Deposit ähnelt.
+        /// </summary>
+        public static string MainView_EntryTypes_Deposit {
+            get {
+                return ResourceManager.GetString("MainView_EntryTypes_Deposit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Payout ähnelt.
+        /// </summary>
+        public static string MainView_EntryTypes_Payout {
+            get {
+                return ResourceManager.GetString("MainView_EntryTypes_Payout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die BOHA - Book Of Household Accounts ähnelt.
         /// </summary>
         public static string MainView_Title {
