@@ -13,7 +13,10 @@
     </Window.DataContext>
     <StackPanel Orientation="Horizontal">
         <Label Content="{x:Static r:Literals.MainView_CurrentBookLabel}" />
-        <TextBlock Text="{Binding Name}" />
+        <TextBlock Text="{Binding BookName}" />
         <Button Content="..." Command="{Binding ChooseBookCommand}" ToolTip="{x:Static r:Literals.MainView_ChoooseBookButtonToolTip}" />
+        <ComboBox ItemsSource="{Binding EntryTypes}" SelectedItem="{Binding ChoosenEntryType}"/>
+        <ComboBox ItemsSource="{Binding Categories}" />
+        <Button Content="Edit Categories" Command="{Binding EditCategoriesCommand}" ToolTip="{x:Static r:Literals.MainView_EditCategoriesButtonToolTip}" />
     </StackPanel>
 </Window>

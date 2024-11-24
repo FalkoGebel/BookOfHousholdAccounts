@@ -15,6 +15,11 @@
             <Setter Property="Foreground" Value="#D7DFC1" />
             <Setter Property="Padding" Value="5" />
         </Style>
+        <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource baseStyle}" />
         <Style TargetType="{x:Type Label}" BasedOn="{StaticResource baseStyle}" />
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="FontFamily" Value="Verdana" />
+            <Setter Property="FontSize" Value="20" />
+        </Style>
     </Application.Resources>
 </Application>
