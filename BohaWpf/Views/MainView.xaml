@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:BohaWpf.Views"
         xmlns:r="clr-namespace:BohaWpf.Properties"
         mc:Ignorable="d"
-        Title="{x:Static r:Literals.MainView_Title}" Height="450" Width="800">
+        Title="{x:Static r:Literals.MainView_Title}" Height="450" Width="1240" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight">
     <Window.DataContext>
         <vm:MainViewModel />
     </Window.DataContext>
@@ -15,8 +15,13 @@
         <Label Content="{x:Static r:Literals.MainView_CurrentBookLabel}" />
         <TextBlock Text="{Binding BookName}" />
         <Button Content="..." Command="{Binding ChooseBookCommand}" ToolTip="{x:Static r:Literals.MainView_ChoooseBookButtonToolTip}" />
-        <ComboBox ItemsSource="{Binding EntryTypes}" SelectedItem="{Binding ChoosenEntryType}"/>
-        <ComboBox ItemsSource="{Binding Categories}" />
+        <ComboBox ItemsSource="{Binding EntryTypes}" SelectedItem="{Binding ChoosenEntryType}" />
+        <ComboBox ItemsSource="{Binding Categories}" SelectedItem="{Binding ChoosenCategory}" />
         <Button Content="Edit Categories" Command="{Binding EditCategoriesCommand}" ToolTip="{x:Static r:Literals.MainView_EditCategoriesButtonToolTip}" />
+        <Label Content="Memo Text" />
+        <TextBox Text="{Binding MemoText, Mode=TwoWay}" Width="100"/>
+        <Label Content="Amount" />
+        <TextBox Text="{Binding AmountInput, Mode=TwoWay}" Width="100" />
+        <Button Content="Create Entry" Command="{Binding CreateEntryCommand}" />
     </StackPanel>
 </Window>

@@ -14,7 +14,7 @@
         <vm:ChooseBookViewModel />
     </Window.DataContext>
     <StackPanel Orientation="Horizontal">
-        <ListView ItemsSource="{Binding Names}" SelectedItem="{Binding SelectedBookName}" TabIndex="1"></ListView>
+        <ListView ItemsSource="{Binding Names}" SelectedItem="{Binding SelectedBookName}" TabIndex="1" />
         <Button Content="Choose Book" Command="{Binding ChooseBookCommand}" CommandParameter="{Binding ElementName=ChoosBookWindow}" TabIndex="2" />
         <Label Content="New Book" />
         <TextBox x:Name="NewBookNameTextBox" Width="100" Text="{Binding NewBookName, Mode=TwoWay}" TabIndex="3"/>
