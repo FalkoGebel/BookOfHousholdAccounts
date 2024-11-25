@@ -10,6 +10,7 @@ namespace BohaWpf.ViewModels
     {
         private BookOfHouseholdAccounts? _book;
         private readonly string _pathFiles = Application.Current.Properties["PathFiles"] as string ?? throw new ArgumentNullException(nameof(_pathFiles));
+        private decimal _amount;
 
         [ObservableProperty]
         private string bookName = string.Empty;
@@ -22,6 +23,15 @@ namespace BohaWpf.ViewModels
 
         [ObservableProperty]
         private List<string> categories = [];
+
+        [ObservableProperty]
+        private string choosenCategory = string.Empty;
+
+        [ObservableProperty]
+        private string memoText = string.Empty;
+
+        [ObservableProperty]
+        private string amountInput = string.Empty;
 
         [RelayCommand]
         private void ChooseBook()
@@ -36,9 +46,47 @@ namespace BohaWpf.ViewModels
         [RelayCommand]
         private void EditCategories()
         {
-            // TODO - implement EditCategories
+            if (_book == null)
+                return;
 
-            MessageBox.Show("Implement EditCategories");
+            var editCategoriesView = new EditCategoriesView(_book);
+            editCategoriesView.ShowDialog();
+            LoadAndUpdateCategories();
+        }
+
+        [RelayCommand]
+        private void CreateEntry()
+        {
+            if (_book == null || string.IsNullOrEmpty(ChoosenCategory) || string.IsNullOrEmpty(AmountInput))
+                return;
+
+            // TODO - Add date field in window
+
+            DateTime today = DateTime.Now;
+            today = new DateTime(today.Year, today.Month, today.Day);
+
+            if (ChoosenEntryType == Properties.Literals.MainView_EntryTypes_Deposit)
+                _book.AddDepositBookEntry(ChoosenCategory, _amount, MemoText, today);
+            else
+                _book.AddPayoutBookEntry(ChoosenCategory, _amount, MemoText, today);
+            _book.SaveToFile();
+        }
+
+        partial void OnAmountInputChanged(string? oldValue, string newValue)
+        {
+            if (oldValue == null)
+                return;
+
+            if (decimal.TryParse(newValue, out var decimalValue))
+                _amount = decimalValue;
+            else
+                amountInput = oldValue;
+        }
+
+        partial void OnChoosenEntryTypeChanged(string? oldValue, string newValue)
+        {
+            if (oldValue != newValue)
+                LoadAndUpdateCategories();
         }
 
         private void LoadAndUpdateCategories()
@@ -47,7 +95,9 @@ namespace BohaWpf.ViewModels
                 return;
 
             _book.LoadFromFile();
-            Categories = _book.Categories.Where(c => c.EntryType == (ChoosenEntryType == Properties.Literals.MainView_EntryTypes_Deposit ? BookEntryType.Deposit : BookEntryType.Payout))
+            Categories = _book.Categories.Where(c => c.EntryType == (ChoosenEntryType == Properties.Literals.MainView_EntryTypes_Deposit
+                                                                       ? BookEntryType.Deposit
+                                                                       : BookEntryType.Payout))
                                          .Select(c => c.Name)
                                          .ToList();
         }
