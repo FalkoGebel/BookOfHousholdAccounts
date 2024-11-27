@@ -25,6 +25,9 @@ namespace BohaWpf.ViewModels
         private List<string> categories = [];
 
         [ObservableProperty]
+        private DateTime? _postingDate = DateTime.Now;
+
+        [ObservableProperty]
         private string choosenCategory = string.Empty;
 
         [ObservableProperty]
@@ -57,12 +60,13 @@ namespace BohaWpf.ViewModels
         [RelayCommand]
         private void CreateEntry()
         {
-            if (_book == null || string.IsNullOrEmpty(ChoosenCategory) || string.IsNullOrEmpty(AmountInput))
+            if (_book == null ||
+                string.IsNullOrEmpty(ChoosenCategory) ||
+                string.IsNullOrEmpty(AmountInput) ||
+                PostingDate == null)
                 return;
 
-            // TODO - Add date field in window
-
-            DateTime today = DateTime.Now;
+            DateTime today = (DateTime)PostingDate;
             today = new DateTime(today.Year, today.Month, today.Day);
 
             if (ChoosenEntryType == Properties.Literals.MainView_EntryTypes_Deposit)

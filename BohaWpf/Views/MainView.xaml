@@ -16,6 +16,7 @@
         <TextBlock Text="{Binding BookName}" />
         <Button Content="..." Command="{Binding ChooseBookCommand}" ToolTip="{x:Static r:Literals.MainView_ChoooseBookButtonToolTip}" />
         <ComboBox ItemsSource="{Binding EntryTypes}" SelectedItem="{Binding ChoosenEntryType}" />
+        <DatePicker SelectedDate="{Binding PostingDate, Mode=TwoWay}" />
         <ComboBox ItemsSource="{Binding Categories}" SelectedItem="{Binding ChoosenCategory}" />
         <Button Content="Edit Categories" Command="{Binding EditCategoriesCommand}" ToolTip="{x:Static r:Literals.MainView_EditCategoriesButtonToolTip}" />
         <Label Content="Memo Text" />
