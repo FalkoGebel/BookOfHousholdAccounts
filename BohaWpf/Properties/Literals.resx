@@ -132,6 +132,9 @@
   <data name="MainView_CurrentBookLabel" xml:space="preserve">
     <value>Current Book</value>
   </data>
+  <data name="MainView_CurrentBookTextBlock_Placeholder" xml:space="preserve">
+    <value>&lt;Choose a book&gt;</value>
+  </data>
   <data name="MainView_EditCategoriesButtonToolTip" xml:space="preserve">
     <value>Edit Categories</value>
   </data>
