@@ -106,6 +106,15 @@ namespace BohaWpf.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;Choose a book&gt; ähnelt.
+        /// </summary>
+        public static string MainView_CurrentBookTextBlock_Placeholder {
+            get {
+                return ResourceManager.GetString("MainView_CurrentBookTextBlock_Placeholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Edit Categories ähnelt.
         /// </summary>
         public static string MainView_EditCategoriesButtonToolTip {

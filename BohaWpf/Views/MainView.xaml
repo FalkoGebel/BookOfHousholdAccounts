@@ -11,18 +11,26 @@
     <Window.DataContext>
         <vm:MainViewModel />
     </Window.DataContext>
-    <StackPanel Orientation="Horizontal">
-        <Label Content="{x:Static r:Literals.MainView_CurrentBookLabel}" />
-        <TextBlock Text="{Binding BookName}" />
-        <Button Content="..." Command="{Binding ChooseBookCommand}" ToolTip="{x:Static r:Literals.MainView_ChoooseBookButtonToolTip}" />
-        <ComboBox ItemsSource="{Binding EntryTypes}" SelectedItem="{Binding ChoosenEntryType}" />
-        <DatePicker SelectedDate="{Binding PostingDate, Mode=TwoWay}" />
-        <ComboBox ItemsSource="{Binding Categories}" SelectedItem="{Binding ChoosenCategory}" />
-        <Button Content="Edit Categories" Command="{Binding EditCategoriesCommand}" ToolTip="{x:Static r:Literals.MainView_EditCategoriesButtonToolTip}" />
-        <Label Content="Memo Text" />
-        <TextBox Text="{Binding MemoText, Mode=TwoWay}" Width="100"/>
-        <Label Content="Amount" />
-        <TextBox Text="{Binding AmountInput, Mode=TwoWay}" Width="100" />
-        <Button Content="Create Entry" Command="{Binding CreateEntryCommand}" />
-    </StackPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0" VerticalAlignment="Center">
+            <Button DockPanel.Dock="Right" Content="..." Command="{Binding ChooseBookCommand}" ToolTip="{x:Static r:Literals.MainView_ChoooseBookButtonToolTip}" />
+            <!--<Label Content="{x:Static r:Literals.MainView_CurrentBookLabel}" />-->
+            <TextBlock Text="{Binding BookName}" />
+        </DockPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <ComboBox ItemsSource="{Binding EntryTypes}" SelectedItem="{Binding ChoosenEntryType}" />
+            <DatePicker SelectedDate="{Binding PostingDate, Mode=TwoWay}" />
+            <ComboBox ItemsSource="{Binding Categories}" SelectedItem="{Binding ChoosenCategory}" />
+            <Button Content="Edit Categories" Command="{Binding EditCategoriesCommand}" ToolTip="{x:Static r:Literals.MainView_EditCategoriesButtonToolTip}" />
+            <Label Content="Memo Text" />
+            <TextBox Text="{Binding MemoText, Mode=TwoWay}" Width="100"/>
+            <Label Content="Amount" />
+            <TextBox Text="{Binding AmountInput, Mode=TwoWay}" Width="100" />
+            <Button Content="Create Entry" Command="{Binding CreateEntryCommand}" />
+        </StackPanel>
+    </Grid>
 </Window>
