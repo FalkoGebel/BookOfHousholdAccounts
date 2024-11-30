@@ -8,14 +8,27 @@ namespace BohaWpf.ViewModels
 {
     public partial class MainViewModel : ObservableObject
     {
-        // TODO - open last opened book again, if existing
-
         private BookOfHouseholdAccounts? _book;
         private readonly string _pathFiles = Application.Current.Properties["PathFiles"] as string ?? throw new ArgumentNullException(nameof(_pathFiles));
         private decimal _amount;
 
+        public MainViewModel()
+        {
+            BooksOfHouseholdAccounts books = new();
+            books.LoadFromFile(_pathFiles);
+            if (books.LastBookName == string.Empty)
+            {
+                if (books.Names.Count != 0)
+                    books.LastBookName = books.Names[0];
+                else
+                    books.AddBook(Properties.Literals.MainView_DefaultBookName);
+            }
+            BookName = books.LastBookName;
+            _book = new BookOfHouseholdAccounts(_pathFiles, BookName);
+        }
+
         [ObservableProperty]
-        private string bookName = Properties.Literals.MainView_CurrentBookTextBlock_Placeholder;
+        private string bookName = string.Empty;
 
         [ObservableProperty]
         private List<string> entryTypes = [Properties.Literals.MainView_EntryTypes_Deposit, Properties.Literals.MainView_EntryTypes_Payout];

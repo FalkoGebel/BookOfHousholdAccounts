@@ -126,16 +126,16 @@
   <data name="ConfirmWindowTitle" xml:space="preserve">
     <value>Confirm</value>
   </data>
-  <data name="MainView_ChoooseBookButtonToolTip" xml:space="preserve">
+  <data name="MainView_ChoooseBookButton_Content" xml:space="preserve">
+    <value>C</value>
+  </data>
+  <data name="MainView_ChoooseBookButton_ToolTip" xml:space="preserve">
     <value>Choose Book</value>
   </data>
-  <data name="MainView_CurrentBookLabel" xml:space="preserve">
-    <value>Current Book</value>
+  <data name="MainView_DefaultBookName" xml:space="preserve">
+    <value>Default</value>
   </data>
-  <data name="MainView_CurrentBookTextBlock_Placeholder" xml:space="preserve">
-    <value>&lt;Choose a book&gt;</value>
-  </data>
-  <data name="MainView_EditCategoriesButtonToolTip" xml:space="preserve">
+  <data name="MainView_EditCategoriesButton_ToolTip" xml:space="preserve">
     <value>Edit Categories</value>
   </data>
   <data name="MainView_EntryTypes_Deposit" xml:space="preserve">
