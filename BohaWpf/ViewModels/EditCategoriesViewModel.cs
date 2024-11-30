@@ -6,8 +6,6 @@ namespace BohaWpf.ViewModels
 {
     public partial class EditCategoriesViewModel : ObservableObject
     {
-        // TODO - Update categories, when entry type changed
-
         private readonly BookOfHouseholdAccounts _book;
 
         public EditCategoriesViewModel(BookOfHouseholdAccounts book)
@@ -64,6 +62,12 @@ namespace BohaWpf.ViewModels
                                                                        : BookEntryType.Payout))
                                          .Select(c => c.Name)
                                          .ToList();
+        }
+
+        partial void OnChoosenEntryTypeChanged(string? oldValue, string newValue)
+        {
+            if (oldValue != newValue)
+                LoadAndUpdateCategories();
         }
     }
 }

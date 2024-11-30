@@ -17,15 +17,14 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <DockPanel Grid.Row="0" VerticalAlignment="Center">
-            <Button DockPanel.Dock="Right" Content="..." Command="{Binding ChooseBookCommand}" ToolTip="{x:Static r:Literals.MainView_ChoooseBookButtonToolTip}" />
-            <!--<Label Content="{x:Static r:Literals.MainView_CurrentBookLabel}" />-->
+            <Button DockPanel.Dock="Right" Content="{x:Static r:Literals.MainView_ChoooseBookButton_Content}" Command="{Binding ChooseBookCommand}" ToolTip="{x:Static r:Literals.MainView_ChoooseBookButton_ToolTip}" />
             <TextBlock Text="{Binding BookName}" />
         </DockPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <ComboBox ItemsSource="{Binding EntryTypes}" SelectedItem="{Binding ChoosenEntryType}" />
             <DatePicker SelectedDate="{Binding PostingDate, Mode=TwoWay}" />
             <ComboBox ItemsSource="{Binding Categories}" SelectedItem="{Binding ChoosenCategory}" />
-            <Button Content="Edit Categories" Command="{Binding EditCategoriesCommand}" ToolTip="{x:Static r:Literals.MainView_EditCategoriesButtonToolTip}" />
+            <Button Content="Edit Categories" Command="{Binding EditCategoriesCommand}" ToolTip="{x:Static r:Literals.MainView_EditCategoriesButton_ToolTip}" />
             <Label Content="Memo Text" />
             <TextBox Text="{Binding MemoText, Mode=TwoWay}" Width="100"/>
             <Label Content="Amount" />

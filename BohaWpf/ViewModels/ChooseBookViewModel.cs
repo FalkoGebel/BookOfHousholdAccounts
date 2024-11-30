@@ -13,6 +13,12 @@ namespace BohaWpf.ViewModels
 
         public string ChoosenBook { get; private set; } = string.Empty;
 
+        public ChooseBookViewModel()
+        {
+            _books = new BooksOfHouseholdAccounts();
+            LoadBooksAndUpdateNames();
+        }
+
         [ObservableProperty]
         private ObservableCollection<string>? _names;
 
@@ -21,12 +27,6 @@ namespace BohaWpf.ViewModels
 
         [ObservableProperty]
         private string _newBookName = string.Empty;
-
-        public ChooseBookViewModel()
-        {
-            _books = new BooksOfHouseholdAccounts();
-            LoadBooksAndUpdateNames();
-        }
 
         [RelayCommand]
         private void AddBook()
@@ -48,6 +48,8 @@ namespace BohaWpf.ViewModels
         private void ChooseBook(Window window)
         {
             ChoosenBook = SelectedBookName;
+            _books.LastBookName = ChoosenBook;
+            _books.SaveToFile(_pathFiles);
             window.Close();
         }
 

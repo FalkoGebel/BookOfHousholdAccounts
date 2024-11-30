@@ -88,38 +88,38 @@ namespace BohaWpf.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die C ähnelt.
+        /// </summary>
+        public static string MainView_ChoooseBookButton_Content {
+            get {
+                return ResourceManager.GetString("MainView_ChoooseBookButton_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Choose Book ähnelt.
         /// </summary>
-        public static string MainView_ChoooseBookButtonToolTip {
+        public static string MainView_ChoooseBookButton_ToolTip {
             get {
-                return ResourceManager.GetString("MainView_ChoooseBookButtonToolTip", resourceCulture);
+                return ResourceManager.GetString("MainView_ChoooseBookButton_ToolTip", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Current Book ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Default ähnelt.
         /// </summary>
-        public static string MainView_CurrentBookLabel {
+        public static string MainView_DefaultBookName {
             get {
-                return ResourceManager.GetString("MainView_CurrentBookLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;Choose a book&gt; ähnelt.
-        /// </summary>
-        public static string MainView_CurrentBookTextBlock_Placeholder {
-            get {
-                return ResourceManager.GetString("MainView_CurrentBookTextBlock_Placeholder", resourceCulture);
+                return ResourceManager.GetString("MainView_DefaultBookName", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Edit Categories ähnelt.
         /// </summary>
-        public static string MainView_EditCategoriesButtonToolTip {
+        public static string MainView_EditCategoriesButton_ToolTip {
             get {
-                return ResourceManager.GetString("MainView_EditCategoriesButtonToolTip", resourceCulture);
+                return ResourceManager.GetString("MainView_EditCategoriesButton_ToolTip", resourceCulture);
             }
         }
         

@@ -5,6 +5,7 @@ namespace BohaLibrary
     public class BooksOfHouseholdAccounts
     {
         public List<string> Names { get; private set; } = [];
+        public string LastBookName { get; set; } = string.Empty;
 
         /// <summary>
         /// Adds the given book name to the list of names, if it does not exist already.
@@ -20,6 +21,8 @@ namespace BohaLibrary
                 throw new ArgumentException($"Book \"{bookName}\" already exists.");
 
             Names.Add(bookName);
+
+            LastBookName = bookName;
         }
 
         /// <summary>
@@ -31,6 +34,9 @@ namespace BohaLibrary
         {
             if (!Names.Remove(bookName))
                 throw new ArgumentException($"Book \"{bookName}\" does not exist.");
+
+            if (LastBookName == bookName)
+                LastBookName = string.Empty;
         }
 
         /// <summary>
@@ -44,6 +50,7 @@ namespace BohaLibrary
 
             BooksOfHouseholdAccountsModel books = BohaFileHelpers.ReadFromJsonFile<BooksOfHouseholdAccountsModel>(Path.Combine(path, fileName));
             Names = [.. books.Names];
+            LastBookName = books.LastBookName;
         }
 
         /// <summary>
@@ -55,7 +62,7 @@ namespace BohaLibrary
         {
             Directory.CreateDirectory(path);
 
-            BohaFileHelpers.WriteToJsonFile(Path.Combine(path, fileName), new BooksOfHouseholdAccountsModel() { Names = [.. Names] });
+            BohaFileHelpers.WriteToJsonFile(Path.Combine(path, fileName), new BooksOfHouseholdAccountsModel() { Names = [.. Names], LastBookName = LastBookName });
         }
     }
 }

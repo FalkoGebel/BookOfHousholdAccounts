@@ -8,6 +8,8 @@ namespace BohaWpf
     /// </summary>
     public partial class App : Application
     {
+        // TODO - improve button design
+
         App()
         {
             Properties["PathFiles"] = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData), "BOHA");
