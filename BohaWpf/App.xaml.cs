@@ -8,7 +8,7 @@ namespace BohaWpf
     /// </summary>
     public partial class App : Application
     {
-        // TODO - improve button design
+        // TODO - improve button design -> working on Version 2 in MainView.xaml
 
         App()
         {
