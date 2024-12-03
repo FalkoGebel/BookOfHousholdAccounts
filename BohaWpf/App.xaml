@@ -5,28 +5,41 @@
              StartupUri="Views/MainView.xaml">
     <Application.Resources>
         <!-- Start base colors -->
+        <Color x:Key="Black">#13070C</Color>
+        <Color x:Key="GreenDark">#184927</Color>
+        <Color x:Key="GreenMedium">#588366</Color>
+        <Color x:Key="GreenLight">#00B938</Color>
         <Color x:Key="RedDark">#8E2618</Color>
         <Color x:Key="RedMedium">#F51D00</Color>
         <Color x:Key="RedLight">#DC9C93</Color>
+        <Color x:Key="White">#F5F2EC</Color>
         <!-- End base colors -->
 
-        <Style TargetType="{x:Type Control}" x:Key="baseStyle">
+        <!--<Style TargetType="{x:Type Control}" x:Key="baseStyle">
             <Setter Property="FontFamily" Value="Verdana" />
             <Setter Property="FontSize" Value="20" />
-        </Style>
+        </Style>-->
 
-        <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource baseStyle}" />
-        <Style TargetType="{x:Type Label}" BasedOn="{StaticResource baseStyle}" />
-        <Style TargetType="{x:Type TextBlock}">
-            <Setter Property="FontFamily" Value="Verdana" />
-            <Setter Property="FontSize" Value="20" />
+        <Style TargetType="{x:Type ComboBox}" />
+        <Style TargetType="{x:Type Label}" />
+        <Style TargetType="{x:Type TextBlock}" >
             <Setter Property="HorizontalAlignment" Value="Center" />
             <Setter Property="VerticalAlignment" Value="Center" />
         </Style>
-        <Style TargetType="{x:Type Window}" BasedOn="{StaticResource baseStyle}">
-            <Setter Property="Background" Value="#D7DFC1" />
-            <Setter Property="Foreground" Value="#13070C" />
+        
+        <!-- Start window -->
+        <!-- Colors -->
+        <SolidColorBrush x:Key="Window.Background" Color="{DynamicResource White}"/>
+        <SolidColorBrush x:Key="Window.Foreground" Color="{DynamicResource Black}"/>
+
+        <!-- Window -->
+        <Style TargetType="{x:Type Window}">
+            <Setter Property="Background" Value="{StaticResource Window.Background}" />
+            <Setter Property="FontFamily" Value="Verdana" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="Foreground" Value="{StaticResource Window.Foreground}" />
         </Style>
+        <!-- End window -->
 
         <!-- Start button -->
         <!-- Colors -->
@@ -34,18 +47,19 @@
         <SolidColorBrush x:Key="Button.Border.Dark" Color="{DynamicResource RedDark}"/>
         <SolidColorBrush x:Key="Button.Border.Default.Light" Color="PaleVioletRed"/>
         <SolidColorBrush x:Key="Button.Border.Default.Dark" Color="DarkViolet"/>
-        <SolidColorBrush x:Key="Button.Border.Pressed.Light" Color="LightBlue"/>
-        <SolidColorBrush x:Key="Button.Border.Pressed.Dark" Color="DarkBlue"/>
+        <SolidColorBrush x:Key="Button.Border.Pressed.Light" Color="{DynamicResource Black}"/>
+        <SolidColorBrush x:Key="Button.Border.Pressed.Dark" Color="{DynamicResource Black}"/>
         <SolidColorBrush x:Key="Button.Border.Disabled" Color="LightGreen"/>
-        <SolidColorBrush x:Key="Button.Background.Light" Color="{DynamicResource RedLight}"/>
-        <SolidColorBrush x:Key="Button.Background.Medium" Color="{DynamicResource RedMedium}"/>
-        <SolidColorBrush x:Key="Button.Background.MouseOver" Color="{DynamicResource RedDark}"/>
+        <SolidColorBrush x:Key="Button.Background.Light" Color="{DynamicResource GreenLight}"/>
+        <SolidColorBrush x:Key="Button.Background.Medium" Color="{DynamicResource GreenMedium}"/>
+        <SolidColorBrush x:Key="Button.Background.MouseOver" Color="{DynamicResource RedLight}"/>
         <SolidColorBrush x:Key="Button.Background.Pressed" Color="{DynamicResource RedDark}"/>
         <SolidColorBrush x:Key="Button.Background.Disabled" Color="DimGray"/>
         <SolidColorBrush x:Key="Button.Background.Default.Light" Color="PaleVioletRed"/>
         <SolidColorBrush x:Key="Button.Background.Default.Dark" Color="DarkViolet"/>
         <SolidColorBrush x:Key="Button.Background.Cancel.Light" Color="LightSalmon"/>
         <SolidColorBrush x:Key="Button.Background.Cancel.Dark" Color="DarkOliveGreen"/>
+        <SolidColorBrush x:Key="Button.Foreground.Pressed" Color="{DynamicResource White}"/>
         <SolidColorBrush x:Key="Button.Foreground.Disabled" Color="Magenta"/>
 
         <!-- FocusVisual -->
@@ -64,9 +78,8 @@
         <!-- Button -->
         <Style TargetType="Button">
             <Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}" />
-            <Setter Property="FontFamily" Value="Verdana" />
-            <Setter Property="FontSize" Value="20" />
             <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="5" />
             <Setter Property="OverridesDefaultStyle" Value="true" />
             <Setter Property="SnapsToDevicePixels" Value="true" />
             <Setter Property="VerticalAlignment" Value="Center" />
@@ -106,6 +119,9 @@
                                     </VisualState>
                                     <VisualState x:Name="Pressed">
                                         <Storyboard>
+                                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="Border">
+                                                <EasingColorKeyFrame KeyTime="0" Value="{Binding Source={StaticResource Button.Background.Pressed}, Path=Color}" />
+                                            </ColorAnimationUsingKeyFrames>
                                             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="Border">
                                                 <EasingColorKeyFrame KeyTime="0" Value="{Binding Source={StaticResource Button.Background.Pressed}, Path=Color}" />
                                             </ColorAnimationUsingKeyFrames>
@@ -135,6 +151,9 @@
                             <ContentPresenter Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" RecognizesAccessKey="True" />
                         </Border>
                         <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Foreground" Value="{StaticResource Button.Foreground.Pressed}" />
+                            </Trigger>
                             <Trigger Property="IsDefault" Value="true">
                                 <Setter TargetName="Border" Property="Background">
                                     <Setter.Value>
