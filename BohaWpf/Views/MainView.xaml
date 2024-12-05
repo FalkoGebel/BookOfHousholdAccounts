@@ -17,19 +17,19 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <DockPanel Grid.Row="0" VerticalAlignment="Center">
-            <Button DockPanel.Dock="Right" Content="{x:Static r:Literals.MainView_ChoooseBookButton_Content}" Command="{Binding ChooseBookCommand}" ToolTip="{x:Static r:Literals.MainView_ChoooseBookButton_ToolTip}" />
+            <Button DockPanel.Dock="Right" Content="{x:Static r:Literals.MainView_ChoooseBookButton_Content}" Command="{Binding ChooseBookCommand}" ToolTip="{x:Static r:Literals.MainView_ChoooseBookButton_ToolTip}" IsCancel="True" />
             <TextBlock Text="{Binding BookName}" />
         </DockPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <ComboBox ItemsSource="{Binding EntryTypes}" SelectedItem="{Binding ChoosenEntryType}" />
             <DatePicker SelectedDate="{Binding PostingDate, Mode=TwoWay}" />
             <ComboBox ItemsSource="{Binding Categories}" SelectedItem="{Binding ChoosenCategory}" />
-            <Button Content="Edit Categories" Command="{Binding EditCategoriesCommand}" ToolTip="{x:Static r:Literals.MainView_EditCategoriesButton_ToolTip}" IsCancel="True" />
+            <Button Content="Edit Categories" Command="{Binding EditCategoriesCommand}" ToolTip="{x:Static r:Literals.MainView_EditCategoriesButton_ToolTip}" IsEnabled="False" />
             <Label Content="Memo Text" />
             <TextBox Text="{Binding MemoText, Mode=TwoWay}" Width="100"/>
             <Label Content="Amount" />
             <TextBox Text="{Binding AmountInput, Mode=TwoWay}" Width="100" />
-            <Button Content="Create Entry" Command="{Binding CreateEntryCommand}" />
+            <Button Content="Create Entry" Command="{Binding CreateEntryCommand}" IsDefault="True" />
         </StackPanel>
     </Grid>
 </Window>
