@@ -88,6 +88,15 @@ namespace BohaWpf.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Amount ähnelt.
+        /// </summary>
+        public static string MainView_AmountLabel_Text {
+            get {
+                return ResourceManager.GetString("MainView_AmountLabel_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die C ähnelt.
         /// </summary>
         public static string MainView_ChoooseBookButton_Content {
@@ -106,11 +115,29 @@ namespace BohaWpf.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Create Entry ähnelt.
+        /// </summary>
+        public static string MainView_CreateEntryButton_Content {
+            get {
+                return ResourceManager.GetString("MainView_CreateEntryButton_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Default ähnelt.
         /// </summary>
         public static string MainView_DefaultBookName {
             get {
                 return ResourceManager.GetString("MainView_DefaultBookName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Edit Categories ähnelt.
+        /// </summary>
+        public static string MainView_EditCategoriesButton_Content {
+            get {
+                return ResourceManager.GetString("MainView_EditCategoriesButton_Content", resourceCulture);
             }
         }
         
@@ -138,6 +165,15 @@ namespace BohaWpf.Properties {
         public static string MainView_EntryTypes_Payout {
             get {
                 return ResourceManager.GetString("MainView_EntryTypes_Payout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Memo Text ähnelt.
+        /// </summary>
+        public static string MainView_MemoTextLabel_Text {
+            get {
+                return ResourceManager.GetString("MainView_MemoTextLabel_Text", resourceCulture);
             }
         }
         

@@ -24,12 +24,12 @@
             <ComboBox ItemsSource="{Binding EntryTypes}" SelectedItem="{Binding ChoosenEntryType}" />
             <DatePicker SelectedDate="{Binding PostingDate, Mode=TwoWay}" />
             <ComboBox ItemsSource="{Binding Categories}" SelectedItem="{Binding ChoosenCategory}" />
-            <Button Content="Edit Categories" Command="{Binding EditCategoriesCommand}" ToolTip="{x:Static r:Literals.MainView_EditCategoriesButton_ToolTip}" IsEnabled="False" />
-            <Label Content="Memo Text" />
+            <Button Content="{x:Static r:Literals.MainView_EditCategoriesButton_Content}" Command="{Binding EditCategoriesCommand}" ToolTip="{x:Static r:Literals.MainView_EditCategoriesButton_ToolTip}" IsEnabled="False" />
+            <Label Content="{x:Static r:Literals.MainView_MemoTextLabel_Text}" />
             <TextBox Text="{Binding MemoText, Mode=TwoWay}" Width="100"/>
-            <Label Content="Amount" />
+            <Label Content="{x:Static r:Literals.MainView_AmountLabel_Text}" />
             <TextBox Text="{Binding AmountInput, Mode=TwoWay}" Width="100" />
-            <Button Content="Create Entry" Command="{Binding CreateEntryCommand}" IsDefault="True" />
+            <Button Content="{x:Static r:Literals.MainView_CreateEntryButton_Content}" Command="{Binding CreateEntryCommand}" IsDefault="True" />
         </StackPanel>
     </Grid>
 </Window>
