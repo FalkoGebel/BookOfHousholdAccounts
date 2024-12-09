@@ -9,4 +9,5 @@
     <Color x:Key="RedMedium">#F51D00</Color>
     <Color x:Key="RedLight">#DC9C93</Color>
     <Color x:Key="White">#F5F2EC</Color>
+    <Color x:Key="BrightWhite">#FDFCFB</Color>
 </ResourceDictionary>
