@@ -14,6 +14,7 @@
     <SolidColorBrush x:Key="Button.Background.Normal.Bottom" Color="{DynamicResource GreenLight}"/>
     <SolidColorBrush x:Key="Button.Background.MouseOver" Color="{DynamicResource GreenDark}"/>
     <SolidColorBrush x:Key="Button.Background.Pressed" Color="{DynamicResource GreenDark}"/>
+    <SolidColorBrush x:Key="Button.Focus.Stroke" Color="{DynamicResource White}"/>
     <SolidColorBrush x:Key="Button.Foreground.MouseOver" Color="{DynamicResource White}"/>
     <SolidColorBrush x:Key="Button.Foreground.Normal" Color="{DynamicResource Black}"/>
     <SolidColorBrush x:Key="Button.Foreground.Pressed" Color="{DynamicResource White}"/>
@@ -24,7 +25,7 @@
             <Setter.Value>
                 <ControlTemplate>
                     <Border>
-                        <Rectangle Margin="2" StrokeThickness="1" Stroke="#60000000" StrokeDashArray="1 2" />
+                        <Rectangle Margin="5" StrokeThickness="2" Stroke="{StaticResource Button.Focus.Stroke}" StrokeDashArray="1 2" />
                     </Border>
                 </ControlTemplate>
             </Setter.Value>

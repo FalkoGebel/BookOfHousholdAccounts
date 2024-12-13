@@ -18,13 +18,13 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <DockPanel Grid.Row="0" VerticalAlignment="Center">
-            <Button DockPanel.Dock="Right" Content="{x:Static r:Literals.MainView_ChoooseBookButton_Content}" Command="{Binding ChooseBookCommand}" ToolTip="{x:Static r:Literals.MainView_ChoooseBookButton_ToolTip}" IsCancel="True" />
+            <Button DockPanel.Dock="Right" Content="{x:Static r:Literals.MainView_ChoooseBookButton_Content}" Command="{Binding ChooseBookCommand}" ToolTip="{x:Static r:Literals.MainView_ChoooseBookButton_ToolTip}" />
             <TextBlock Text="{Binding BookName}" />
         </DockPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <ComboBox ItemsSource="{Binding EntryTypes}" SelectedItem="{Binding ChoosenEntryType}" />
             <ComboBox ItemsSource="{Binding Categories}" SelectedItem="{Binding ChoosenCategory}" />
-            <Button Content="{x:Static r:Literals.MainView_EditCategoriesButton_Content}" Command="{Binding EditCategoriesCommand}" ToolTip="{x:Static r:Literals.MainView_EditCategoriesButton_ToolTip}" IsEnabled="False" />
+            <Button Content="{x:Static r:Literals.MainView_EditCategoriesButton_Content}" Command="{Binding EditCategoriesCommand}" ToolTip="{x:Static r:Literals.MainView_EditCategoriesButton_ToolTip}" />
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal">
             <DatePicker SelectedDate="{Binding PostingDate, Mode=TwoWay}" />
@@ -32,7 +32,7 @@
             <TextBox Text="{Binding MemoText, Mode=TwoWay}" IsEnabled="False" />
             <Label Content="{x:Static r:Literals.MainView_AmountLabel_Text}" />
             <TextBox Text="{Binding AmountInput, Mode=TwoWay}" />
-            <Button Content="{x:Static r:Literals.MainView_CreateEntryButton_Content}" Command="{Binding CreateEntryCommand}" IsDefault="True" />
+            <Button Content="{x:Static r:Literals.MainView_CreateEntryButton_Content}" Command="{Binding CreateEntryCommand}" />
         </StackPanel>
     </Grid>
 </Window>
