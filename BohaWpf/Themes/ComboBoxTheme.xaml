@@ -11,6 +11,7 @@
     <SolidColorBrush x:Key="ComboBox.Border.Normal" Color="{DynamicResource Gray}"/>
     <SolidColorBrush x:Key="ComboBox.Foreground.Normal" Color="{DynamicResource Black}"/>
     <SolidColorBrush x:Key="ComboBox.TextBox.Background.Normal" Color="{DynamicResource BrightWhite}"/>
+    <SolidColorBrush x:Key="ComboBox.Arrow.Normal" Color="{DynamicResource Black}"/>
 
     <!-- Linear gradient brushes -->
     <LinearGradientBrush x:Key="ComboBox.Background.Normal" EndPoint="0,1" StartPoint="0,0">
@@ -45,7 +46,6 @@
         </Setter>
     </Style>
     <SolidColorBrush x:Key="ComboBox.Static.Border" Color="#FFACACAC"/>
-    <SolidColorBrush x:Key="ComboBox.Static.Glyph" Color="#FF606060"/>
     <SolidColorBrush x:Key="ComboBox.Static.Editable.Background" Color="#FFFFFFFF"/>
     <SolidColorBrush x:Key="ComboBox.Static.Editable.Border" Color="#FFABADB3"/>
     <SolidColorBrush x:Key="ComboBox.Static.Editable.Button.Background" Color="Transparent"/>
@@ -103,8 +103,14 @@
                                 HorizontalAlignment="Right"
                                 Margin="0"
                                 SnapsToDevicePixels="true"
-                                Width="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}">
-                            <Path x:Name="arrow" Data="F1 M 0,0 L 2.667,2.66665 L 5.3334,0 L 5.3334,-1.78168 L 2.6667,0.88501 L0,-1.78168 L0,0 Z" Fill="{StaticResource ComboBox.Static.Glyph}" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center"/>
+                                Width="30">
+                            <Label x:Name="arrow"
+                                   Content="v"
+                                   FontSize="15"
+                                   Foreground="{StaticResource ComboBox.Arrow.Normal}"
+                                   HorizontalAlignment="Center"
+                                   Margin="0"
+                                   VerticalAlignment="Center"/>
                         </Border>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -121,7 +127,7 @@
                             <Setter Property="BorderBrush" TargetName="splitBorder" Value="{StaticResource ComboBox.Static.Editable.Button.Border}"/>
                         </MultiDataTrigger>
                         <Trigger Property="IsMouseOver" Value="true">
-                            <Setter Property="Fill" TargetName="arrow" Value="{StaticResource ComboBox.MouseOver.Glyph}"/>
+                            <Setter Property="Foreground" TargetName="arrow" Value="{StaticResource ComboBox.MouseOver.Glyph}"/>
                         </Trigger>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
@@ -142,7 +148,7 @@
                             <Setter Property="BorderBrush" TargetName="splitBorder" Value="{StaticResource ComboBox.MouseOver.Editable.Button.Border}"/>
                         </MultiDataTrigger>
                         <Trigger Property="IsPressed" Value="true">
-                            <Setter Property="Fill" TargetName="arrow" Value="{StaticResource ComboBox.Pressed.Glyph}"/>
+                            <Setter Property="Foreground" TargetName="arrow" Value="{StaticResource ComboBox.Pressed.Glyph}"/>
                         </Trigger>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
@@ -163,7 +169,7 @@
                             <Setter Property="BorderBrush" TargetName="splitBorder" Value="{StaticResource ComboBox.Pressed.Editable.Button.Border}"/>
                         </MultiDataTrigger>
                         <Trigger Property="IsEnabled" Value="false">
-                            <Setter Property="Fill" TargetName="arrow" Value="{StaticResource ComboBox.Disabled.Glyph}"/>
+                            <Setter Property="Foreground" TargetName="arrow" Value="{StaticResource ComboBox.Disabled.Glyph}"/>
                         </Trigger>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
@@ -292,7 +298,7 @@
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
-        <Setter Property="Padding" Value="6,3,5,3"/>
+        <Setter Property="Padding" Value="6,3,24,3"/>
         <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
         <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
         <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
