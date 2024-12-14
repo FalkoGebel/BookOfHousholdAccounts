@@ -8,10 +8,11 @@
     <!-- Colors -->
     <SolidColorBrush x:Key="ComboBox.Background.Normal.Top" Color="{DynamicResource GreenMedium}"/>
     <SolidColorBrush x:Key="ComboBox.Background.Normal.Bottom" Color="{DynamicResource GreenLight}"/>
+    <SolidColorBrush x:Key="ComboBox.Background.MouseOver" Color="{DynamicResource GreenDark}"/>
     <SolidColorBrush x:Key="ComboBox.Border.Normal" Color="{DynamicResource Gray}"/>
     <SolidColorBrush x:Key="ComboBox.Foreground.Normal" Color="{DynamicResource Black}"/>
+    <SolidColorBrush x:Key="ComboBox.Foreground.MouseOver" Color="{DynamicResource White}"/>
     <SolidColorBrush x:Key="ComboBox.TextBox.Background.Normal" Color="{DynamicResource BrightWhite}"/>
-    <SolidColorBrush x:Key="ComboBox.Arrow.Normal" Color="{DynamicResource Black}"/>
 
     <!-- Linear gradient brushes -->
     <LinearGradientBrush x:Key="ComboBox.Background.Normal" EndPoint="0,1" StartPoint="0,0">
@@ -50,19 +51,15 @@
     <SolidColorBrush x:Key="ComboBox.Static.Editable.Border" Color="#FFABADB3"/>
     <SolidColorBrush x:Key="ComboBox.Static.Editable.Button.Background" Color="Transparent"/>
     <SolidColorBrush x:Key="ComboBox.Static.Editable.Button.Border" Color="Transparent"/>
-    <LinearGradientBrush x:Key="ComboBox.MouseOver.Background" EndPoint="0,1" StartPoint="0,0">
-        <GradientStop Color="#FFECF4FC" Offset="0.0"/>
-        <GradientStop Color="#FFDCECFC" Offset="1.0"/>
-    </LinearGradientBrush>
-    <SolidColorBrush x:Key="ComboBox.MouseOver.Border" Color="#FF7EB4EA"/>
-    <SolidColorBrush x:Key="ComboBox.MouseOver.Glyph" Color="#FF000000"/>
-    <SolidColorBrush x:Key="ComboBox.MouseOver.Editable.Background" Color="#FFFFFFFF"/>
-    <SolidColorBrush x:Key="ComboBox.MouseOver.Editable.Border" Color="#FF7EB4EA"/>
+    <SolidColorBrush x:Key="ComboBox.MouseOver.Border" Color="Yellow"/>
+    <SolidColorBrush x:Key="ComboBox.MouseOver.Glyph" Color="Blue"/>
+    <SolidColorBrush x:Key="ComboBox.MouseOver.Editable.Background" Color="Green"/>
+    <SolidColorBrush x:Key="ComboBox.MouseOver.Editable.Border" Color="HotPink"/>
     <LinearGradientBrush x:Key="ComboBox.MouseOver.Editable.Button.Background" EndPoint="0,1" StartPoint="0,0">
-        <GradientStop Color="#FFEBF4FC" Offset="0.0"/>
-        <GradientStop Color="#FFDCECFC" Offset="1.0"/>
+        <GradientStop Color="DarkMagenta" Offset="0.0"/>
+        <GradientStop Color="Magenta" Offset="1.0"/>
     </LinearGradientBrush>
-    <SolidColorBrush x:Key="ComboBox.MouseOver.Editable.Button.Border" Color="#FF7EB4EA"/>
+    <SolidColorBrush x:Key="ComboBox.MouseOver.Editable.Button.Border" Color="YellowGreen"/>
     <LinearGradientBrush x:Key="ComboBox.Pressed.Background" EndPoint="0,1" StartPoint="0,0">
         <GradientStop Color="#FFDAECFC" Offset="0.0"/>
         <GradientStop Color="#FFC4E0FC" Offset="1.0"/>
@@ -93,13 +90,13 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
                     <Border x:Name="templateRoot"
-                            Background="{StaticResource ComboBox.Background.Normal}"
-                            BorderBrush="{StaticResource ComboBox.Border.Normal}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="5"
                             SnapsToDevicePixels="true">
                         <Border x:Name="splitBorder"
-                                BorderBrush="{StaticResource ComboBox.Border.Normal}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="1,0,0,0"
                                 HorizontalAlignment="Right"
                                 Margin="0"
@@ -107,14 +104,39 @@
                                 Width="30">
                             <Label x:Name="arrow"
                                    Content="v"
+                                   Foreground="{TemplateBinding Foreground}"
                                    FontSize="15"
-                                   Foreground="{StaticResource ComboBox.Arrow.Normal}"
                                    HorizontalAlignment="Center"
                                    Margin="0"
                                    VerticalAlignment="Center"/>
                         </Border>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="0:0:0.5" />
+                                    <VisualTransition GeneratedDuration="0" To="Pressed" />
+                                    <VisualTransition GeneratedDuration="0" From="Pressed" />
+                                </VisualStateGroup.Transitions>
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="templateRoot">
+                                            <EasingColorKeyFrame KeyTime="0" Value="{Binding Source={StaticResource ComboBox.Background.MouseOver}, Path=Color}" />
+                                        </ColorAnimationUsingKeyFrames>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="templateRoot">
+                                            <EasingColorKeyFrame KeyTime="0" Value="{Binding Source={StaticResource ComboBox.Background.MouseOver}, Path=Color}" />
+                                        </ColorAnimationUsingKeyFrames>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Foreground).(SolidColorBrush.Color)" Storyboard.TargetName="arrow">
+                                            <EasingColorKeyFrame KeyTime="0" Value="{Binding Source={StaticResource ComboBox.Foreground.MouseOver}, Path=Color}" />
+                                            <!--<EasingColorKeyFrame KeyTime="0" Value="{StaticResource White}" />-->
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
                     </Border>
-                    <ControlTemplate.Triggers>
+                    <!--<ControlTemplate.Triggers>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
                                 <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}" Value="true"/>
@@ -126,17 +148,6 @@
                             <Setter Property="BorderBrush" TargetName="templateRoot" Value="{StaticResource ComboBox.Static.Editable.Border}"/>
                             <Setter Property="Background" TargetName="splitBorder" Value="{StaticResource ComboBox.Static.Editable.Button.Background}"/>
                             <Setter Property="BorderBrush" TargetName="splitBorder" Value="{StaticResource ComboBox.Static.Editable.Button.Border}"/>
-                        </MultiDataTrigger>
-                        <Trigger Property="IsMouseOver" Value="true">
-                            <Setter Property="Foreground" TargetName="arrow" Value="{StaticResource ComboBox.MouseOver.Glyph}"/>
-                        </Trigger>
-                        <MultiDataTrigger>
-                            <MultiDataTrigger.Conditions>
-                                <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Mode=Self}}" Value="true"/>
-                                <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}" Value="false"/>
-                            </MultiDataTrigger.Conditions>
-                            <Setter Property="Background" TargetName="templateRoot" Value="{StaticResource ComboBox.MouseOver.Background}"/>
-                            <Setter Property="BorderBrush" TargetName="templateRoot" Value="{StaticResource ComboBox.MouseOver.Border}"/>
                         </MultiDataTrigger>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
@@ -190,7 +201,7 @@
                             <Setter Property="Background" TargetName="splitBorder" Value="{StaticResource ComboBox.Disabled.Editable.Button.Background}"/>
                             <Setter Property="BorderBrush" TargetName="splitBorder" Value="{StaticResource ComboBox.Disabled.Editable.Button.Border}"/>
                         </MultiDataTrigger>
-                    </ControlTemplate.Triggers>
+                    </ControlTemplate.Triggers>-->
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -305,10 +316,10 @@
     
     <Style TargetType="{x:Type ComboBox}">
         <Setter Property="Background" Value="{StaticResource ComboBox.Background.Normal}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource ComboBox.Static.Border}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource ComboBox.Border.Normal}"/>
         <Setter Property="BorderThickness" Value="2"/>
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
-        <!--<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}"/>-->
+        <Setter Property="Foreground" Value="{StaticResource ComboBox.Foreground.Normal}"/>
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="Padding" Value="10,12,24,12"/>
