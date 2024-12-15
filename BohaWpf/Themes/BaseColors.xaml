@@ -4,10 +4,11 @@
     <Color x:Key="Gray">#7b7976</Color>
     <Color x:Key="GreenDark">#184927</Color>
     <Color x:Key="GreenMedium">#588366</Color>
+    <Color x:Key="GreenMediumBright">#ACC1B3</Color>
     <Color x:Key="GreenLight">#00B938</Color>
     <Color x:Key="RedDark">#8E2618</Color>
     <Color x:Key="RedMedium">#F51D00</Color>
     <Color x:Key="RedLight">#DC9C93</Color>
     <Color x:Key="White">#F5F2EC</Color>
-    <Color x:Key="BrightWhite">#FDFCFB</Color>
+    <Color x:Key="WhiteBright">#FDFCFB</Color>
 </ResourceDictionary>
