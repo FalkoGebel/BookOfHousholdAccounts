@@ -7,7 +7,7 @@
     <!-- Colors -->
     <SolidColorBrush x:Key="TextBox.Focus.BorderBrush" Color="{DynamicResource GreenMedium}"/>
     <SolidColorBrush x:Key="TextBox.MouseOver.BorderBrush" Color="{DynamicResource GreenMedium}"/>
-    <SolidColorBrush x:Key="TextBox.Normal.Background" Color="{DynamicResource BrightWhite}"/>
+    <SolidColorBrush x:Key="TextBox.Normal.Background" Color="{DynamicResource WhiteBright}"/>
     <SolidColorBrush x:Key="TextBox.Normal.BorderBrush" Color="{DynamicResource Gray}"/>
     <SolidColorBrush x:Key="TextBox.Normal.Foreground" Color="{DynamicResource Black}"/>
     <SolidColorBrush x:Key="TextBox.Normal.SelectionBrush" Color="{DynamicResource GreenMedium}"/>
