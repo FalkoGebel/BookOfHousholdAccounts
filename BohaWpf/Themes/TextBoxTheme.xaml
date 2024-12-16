@@ -18,19 +18,13 @@
         <Setter Property="BorderBrush" Value="{StaticResource TextBox.Normal.BorderBrush}"/>
         <Setter Property="BorderThickness" Value="2"/>
         <Setter Property="Foreground" Value="{StaticResource TextBox.Normal.Foreground}"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="MinWidth" Value="100" />
         <Setter Property="Margin" Value="5" />
         <Setter Property="Padding" Value="2" />
         <Setter Property="SelectionBrush" Value="{StaticResource TextBox.Normal.SelectionBrush}" />
         <Setter Property="VerticalContentAlignment" Value="Center"/>
-
-        <!--<Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
-        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-        <Setter Property="AllowDrop" Value="true"/>
-        <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
-        <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>-->
-        
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TextBoxBase}">

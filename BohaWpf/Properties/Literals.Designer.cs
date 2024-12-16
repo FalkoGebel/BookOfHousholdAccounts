@@ -133,7 +133,7 @@ namespace BohaWpf.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Edit Categories ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die E ähnelt.
         /// </summary>
         public static string MainView_EditCategoriesButton_Content {
             get {
