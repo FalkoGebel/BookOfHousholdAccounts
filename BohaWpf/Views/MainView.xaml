@@ -22,23 +22,23 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <DockPanel Grid.Row="0" VerticalAlignment="Center">
-            <Button DockPanel.Dock="Right" Content="{x:Static r:Literals.MainView_ChoooseBookButton_Content}" Command="{Binding ChooseBookCommand}" ToolTip="{x:Static r:Literals.MainView_ChoooseBookButton_ToolTip}" />
+            <Button DockPanel.Dock="Right" Content="{x:Static r:Literals.MainView_ChoooseBookButton_Content}" Command="{Binding ChooseBookCommand}" ToolTip="{x:Static r:Literals.MainView_ChoooseBookButton_ToolTip}" TabIndex="1" IsTabStop="False" />
             <TextBlock Text="{Binding BookName}" />
         </DockPanel>
-        <ComboBox Grid.Row="1" ItemsSource="{Binding EntryTypes}" SelectedItem="{Binding ChoosenEntryType}" />
+        <ComboBox Grid.Row="1" ItemsSource="{Binding EntryTypes}" SelectedItem="{Binding ChoosenEntryType}" TabIndex="2" />
         <DockPanel Grid.Row="2" VerticalAlignment="Center">
-            <Button DockPanel.Dock="Right" Content="{x:Static r:Literals.MainView_EditCategoriesButton_Content}" Command="{Binding EditCategoriesCommand}" ToolTip="{x:Static r:Literals.MainView_EditCategoriesButton_ToolTip}" />
-            <ComboBox ItemsSource="{Binding Categories}" SelectedItem="{Binding ChoosenCategory}" />
+            <Button DockPanel.Dock="Right" Content="{x:Static r:Literals.MainView_EditCategoriesButton_Content}" Command="{Binding EditCategoriesCommand}" ToolTip="{x:Static r:Literals.MainView_EditCategoriesButton_ToolTip}" TabIndex="4" IsTabStop="False" />
+            <ComboBox ItemsSource="{Binding Categories}" SelectedItem="{Binding ChoosenCategory, Mode=TwoWay}" TabIndex="3" />
         </DockPanel>
-        <DatePicker Grid.Row="3" SelectedDate="{Binding PostingDate, Mode=TwoWay}" />
-        <DockPanel Grid.Row="4" VerticalAlignment="Center">
-            <Label DockPanel.Dock="Left" Content="{x:Static r:Literals.MainView_MemoTextLabel_Text}" />
-            <TextBox Text="{Binding MemoText, Mode=TwoWay}" IsEnabled="False" />
-        </DockPanel>
-        <DockPanel Grid.Row="5"  VerticalAlignment="Center">
+        <DatePicker Grid.Row="3" SelectedDate="{Binding PostingDate, Mode=TwoWay}" TabIndex="5" />
+        <DockPanel Grid.Row="4"  VerticalAlignment="Center">
             <Label DockPanel.Dock="Left" Content="{x:Static r:Literals.MainView_AmountLabel_Text}" />
-            <TextBox Text="{Binding MemoText, Mode=TwoWay}" IsEnabled="False" />
+            <TextBox Text="{Binding AmountInput, Mode=TwoWay}" TabIndex="6" HorizontalContentAlignment="Right"/>
         </DockPanel>
-        <Button Grid.Row="6" Content="{x:Static r:Literals.MainView_CreateEntryButton_Content}" Command="{Binding CreateEntryCommand}" />
+        <DockPanel Grid.Row="5" VerticalAlignment="Center">
+            <Label DockPanel.Dock="Left" Content="{x:Static r:Literals.MainView_MemoTextLabel_Text}" />
+            <TextBox Text="{Binding MemoText, Mode=TwoWay}" TabIndex="7" />
+        </DockPanel>
+        <Button Grid.Row="6" Content="{x:Static r:Literals.MainView_CreateEntryButton_Content}" Command="{Binding CreateEntryCommand}" IsEnabled="{Binding CreateEntryButtonIsEnabled}" TabIndex="8"/>
     </Grid>
 </Window>

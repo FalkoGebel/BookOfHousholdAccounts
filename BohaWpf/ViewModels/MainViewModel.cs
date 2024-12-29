@@ -23,11 +23,27 @@ namespace BohaWpf.ViewModels
                 else
                     books.AddBook(Properties.Literals.MainView_DefaultBookName);
             }
-            BookName = books.LastBookName;
-            _book = new BookOfHouseholdAccounts(_pathFiles, BookName);
+            SetBook(books.LastBookName);
+            AmountInput = "0";
+        }
+
+        public bool CreateEntryButtonIsEnabled
+        {
+            get
+            {
+                if (_book == null ||
+                    string.IsNullOrEmpty(ChoosenCategory) ||
+                    string.IsNullOrEmpty(AmountInput) ||
+                    _amount == 0 ||
+                    PostingDate == null)
+                    return false;
+
+                return true;
+            }
         }
 
         [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(CreateEntryButtonIsEnabled))]
         private string bookName = string.Empty;
 
         [ObservableProperty]
@@ -40,15 +56,18 @@ namespace BohaWpf.ViewModels
         private List<string> categories = [];
 
         [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(CreateEntryButtonIsEnabled))]
         private DateTime? _postingDate = DateTime.Now;
 
         [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(CreateEntryButtonIsEnabled))]
         private string choosenCategory = string.Empty;
 
         [ObservableProperty]
         private string memoText = string.Empty;
 
         [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(CreateEntryButtonIsEnabled))]
         private string amountInput = string.Empty;
 
         [RelayCommand]
@@ -56,9 +75,9 @@ namespace BohaWpf.ViewModels
         {
             var chooseBookView = new ChooseBookView();
             chooseBookView.ShowDialog();
-            BookName = ((ChooseBookViewModel)chooseBookView.DataContext).ChoosenBook;
-            _book = new BookOfHouseholdAccounts(_pathFiles, BookName);
-            LoadAndUpdateCategories();
+            string bookName = ((ChooseBookViewModel)chooseBookView.DataContext).ChoosenBook;
+            if (!string.IsNullOrEmpty(bookName))
+                SetBook(bookName);
         }
 
         [RelayCommand]
@@ -78,6 +97,7 @@ namespace BohaWpf.ViewModels
             if (_book == null ||
                 string.IsNullOrEmpty(ChoosenCategory) ||
                 string.IsNullOrEmpty(AmountInput) ||
+                _amount == 0 ||
                 PostingDate == null)
                 return;
 
@@ -89,6 +109,9 @@ namespace BohaWpf.ViewModels
             else
                 _book.AddPayoutBookEntry(ChoosenCategory, _amount, MemoText, today);
             _book.SaveToFile();
+
+            AmountInput = "0";
+            MemoText = string.Empty;
         }
 
         partial void OnAmountInputChanged(string? oldValue, string newValue)
@@ -119,6 +142,17 @@ namespace BohaWpf.ViewModels
                                                                        : BookEntryType.Payout))
                                          .Select(c => c.Name)
                                          .ToList();
+        }
+
+        private void SetBook(string bookName)
+        {
+            BookName = bookName;
+
+            if (BookName != string.Empty)
+            {
+                _book = new BookOfHouseholdAccounts(_pathFiles, BookName);
+                LoadAndUpdateCategories();
+            }
         }
     }
 }
