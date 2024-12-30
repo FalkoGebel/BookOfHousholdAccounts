@@ -16,6 +16,7 @@
     <SolidColorBrush x:Key="ComboBox.PopUp.Border.Normal" Color="{DynamicResource Gray}"/>
     <SolidColorBrush x:Key="ComboBox.PopUp.Foreground.Normal" Color="{DynamicResource Black}"/>
     <SolidColorBrush x:Key="ComboBox.TextBox.Background.Normal" Color="{DynamicResource WhiteBright}"/>
+    <SolidColorBrush x:Key="ComboBox.TextBox.Focus.Stroke" Color="{DynamicResource White}"/>
     <SolidColorBrush x:Key="ComboBoxItem.Background.MouseOver" Color="{DynamicResource GreenMedium}"/>
     <SolidColorBrush x:Key="ComboBoxItem.Foreground.MouseOver" Color="{DynamicResource White}"/>
 
@@ -29,14 +30,15 @@
         <Setter Property="Control.Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    <Rectangle Margin="5"
+                               SnapsToDevicePixels="true"
+                               StrokeThickness="2"
+                               Stroke="{StaticResource ComboBox.TextBox.Focus.Stroke}"
+                               StrokeDashArray="1 2" />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-    
-    <SolidColorBrush x:Key="TextBox.Static.Background" Color="#FFFFFFFF"/>
-    
     <Style x:Key="ComboBoxEditableTextBox" TargetType="{x:Type TextBox}">
         <Setter Property="OverridesDefaultStyle" Value="true"/>
         <Setter Property="AllowDrop" Value="true"/>
@@ -146,7 +148,7 @@
                 </theme:SystemDropShadowChrome>
             </Popup>
             <ToggleButton x:Name="toggleButton" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource Mode=TemplatedParent}}" Style="{StaticResource ComboBoxToggleButton}"/>
-            <Border x:Name="border" Background="{StaticResource TextBox.Static.Background}" Margin="{TemplateBinding BorderThickness}">
+            <Border x:Name="border" Background="{StaticResource ComboBox.TextBox.Background.Normal}" Margin="{TemplateBinding BorderThickness}">
                 <TextBox x:Name="PART_EditableTextBox" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" IsReadOnly="{Binding IsReadOnly, RelativeSource={RelativeSource Mode=TemplatedParent}}" Margin="{TemplateBinding Padding}" Style="{StaticResource ComboBoxEditableTextBox}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
             </Border>
         </Grid>
@@ -193,7 +195,6 @@
                    MaxHeight="{TemplateBinding MaxDropDownHeight}"
                    MinWidth="{Binding ActualWidth, ElementName=templateRoot}"
                    PopupAnimation="{DynamicResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}">
-                <!--<theme:SystemDropShadowChrome x:Name="shadow" Color="Transparent" MinWidth="{Binding ActualWidth, ElementName=templateRoot}" MaxHeight="{TemplateBinding MaxDropDownHeight}">-->
                     <Border x:Name="dropDownBorder"
                             Background="{StaticResource ComboBox.PopUp.Background.Normal}"
                             BorderBrush="{StaticResource ComboBox.PopUp.Border.Normal}"
@@ -208,7 +209,6 @@
                             </Grid>
                         </ScrollViewer>
                     </Border>
-                <!--</theme:SystemDropShadowChrome>-->
             </Popup>
             <ToggleButton x:Name="toggleButton"
                           Background="{TemplateBinding Background}"

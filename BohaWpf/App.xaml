@@ -10,6 +10,7 @@
                 <ResourceDictionary Source="Themes/ComboBoxTheme.xaml" />
                 <ResourceDictionary Source="Themes/DatePickerTheme.xaml" />
                 <ResourceDictionary Source="Themes/LabelTheme.xaml" />
+                <ResourceDictionary Source="Themes/ListViewTheme.xaml" />
                 <ResourceDictionary Source="Themes/TextBlockTheme.xaml" />
                 <ResourceDictionary Source="Themes/TextBoxTheme.xaml" />
                 <ResourceDictionary Source="Themes/WindowTheme.xaml" />

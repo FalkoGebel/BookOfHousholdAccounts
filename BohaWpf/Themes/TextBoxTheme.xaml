@@ -5,25 +5,25 @@
     </ResourceDictionary.MergedDictionaries>
 
     <!-- Colors -->
-    <SolidColorBrush x:Key="TextBox.Focus.BorderBrush" Color="{DynamicResource GreenMedium}"/>
-    <SolidColorBrush x:Key="TextBox.MouseOver.BorderBrush" Color="{DynamicResource GreenMedium}"/>
-    <SolidColorBrush x:Key="TextBox.Normal.Background" Color="{DynamicResource WhiteBright}"/>
-    <SolidColorBrush x:Key="TextBox.Normal.BorderBrush" Color="{DynamicResource Gray}"/>
-    <SolidColorBrush x:Key="TextBox.Normal.Foreground" Color="{DynamicResource Black}"/>
-    <SolidColorBrush x:Key="TextBox.Normal.SelectionBrush" Color="{DynamicResource GreenMedium}"/>
+    <SolidColorBrush x:Key="TextBox.Background.Normal" Color="{DynamicResource WhiteBright}"/>
+    <SolidColorBrush x:Key="TextBox.Border.Focus" Color="{DynamicResource GreenMedium}"/>
+    <SolidColorBrush x:Key="TextBox.Border.MouseOver" Color="{DynamicResource GreenMedium}"/>
+    <SolidColorBrush x:Key="TextBox.Border.Normal" Color="{DynamicResource Gray}"/>
+    <SolidColorBrush x:Key="TextBox.Foreground.Normal" Color="{DynamicResource Black}"/>
+    <SolidColorBrush x:Key="TextBox.Selection.Normal" Color="{DynamicResource GreenMedium}"/>
 
     <!-- TextBox -->
     <Style TargetType="{x:Type TextBox}">
-        <Setter Property="Background" Value="{StaticResource TextBox.Normal.Background}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource TextBox.Normal.BorderBrush}"/>
+        <Setter Property="Background" Value="{StaticResource TextBox.Background.Normal}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource TextBox.Border.Normal}"/>
         <Setter Property="BorderThickness" Value="2"/>
-        <Setter Property="Foreground" Value="{StaticResource TextBox.Normal.Foreground}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextBox.Foreground.Normal}"/>
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="MinWidth" Value="100" />
         <Setter Property="Margin" Value="5" />
         <Setter Property="Padding" Value="2" />
-        <Setter Property="SelectionBrush" Value="{StaticResource TextBox.Normal.SelectionBrush}" />
+        <Setter Property="SelectionBrush" Value="{StaticResource TextBox.Selection.Normal}" />
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -42,10 +42,10 @@
                             <Setter Property="BorderThickness" Value="1" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="true">
-                            <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.MouseOver.BorderBrush}"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.Border.MouseOver}"/>
                         </Trigger>
                         <Trigger Property="IsKeyboardFocused" Value="true">
-                            <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.Focus.BorderBrush}"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.Border.Focus}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

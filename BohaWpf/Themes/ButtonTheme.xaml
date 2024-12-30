@@ -25,7 +25,11 @@
             <Setter.Value>
                 <ControlTemplate>
                     <Border>
-                        <Rectangle Margin="5" StrokeThickness="2" Stroke="{StaticResource Button.Focus.Stroke}" StrokeDashArray="1 2" />
+                        <Rectangle Margin="5"
+                                   SnapsToDevicePixels="true"
+                                   StrokeThickness="2"
+                                   Stroke="{StaticResource Button.Focus.Stroke}"
+                                   StrokeDashArray="1 2" />
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
