@@ -20,5 +20,8 @@
         <TextBox x:Name="NewBookNameTextBox" Width="100" Text="{Binding NewBookName, Mode=TwoWay}" TabIndex="3"/>
         <Button Content="Add New Book" Command="{Binding AddBookCommand}" TabIndex="4" />
         <Button Content="Delete Book" Command="{Binding DeleteBookCommand}" TabIndex="5" />
+        <ListView IsEnabled="False">
+            <ListViewItem>Test</ListViewItem>
+        </ListView>
     </StackPanel>
 </Window>
