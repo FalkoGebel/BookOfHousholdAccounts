@@ -70,6 +70,51 @@ namespace BohaWpf.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Add ähnelt.
+        /// </summary>
+        public static string ChooseBookView_AddNewBook_Content {
+            get {
+                return ResourceManager.GetString("ChooseBookView_AddNewBook_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Add New Book ähnelt.
+        /// </summary>
+        public static string ChooseBookView_AddNewBook_ToolTip {
+            get {
+                return ResourceManager.GetString("ChooseBookView_AddNewBook_ToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die D ähnelt.
+        /// </summary>
+        public static string ChooseBookView_DeleteBookButton_Content {
+            get {
+                return ResourceManager.GetString("ChooseBookView_DeleteBookButton_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Delete Book ähnelt.
+        /// </summary>
+        public static string ChooseBookView_DeleteBookButton_ToolTip {
+            get {
+                return ResourceManager.GetString("ChooseBookView_DeleteBookButton_ToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die New Book ähnelt.
+        /// </summary>
+        public static string ChooseBookView_NewBookLabel_Text {
+            get {
+                return ResourceManager.GetString("ChooseBookView_NewBookLabel_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Choose Book ähnelt.
         /// </summary>
         public static string ChooseBookView_Title {
@@ -99,18 +144,18 @@ namespace BohaWpf.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die C ähnelt.
         /// </summary>
-        public static string MainView_ChoooseBookButton_Content {
+        public static string MainView_ChooseBookButton_Content {
             get {
-                return ResourceManager.GetString("MainView_ChoooseBookButton_Content", resourceCulture);
+                return ResourceManager.GetString("MainView_ChooseBookButton_Content", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Choose Book ähnelt.
         /// </summary>
-        public static string MainView_ChoooseBookButton_ToolTip {
+        public static string MainView_ChooseBookButton_ToolTip {
             get {
-                return ResourceManager.GetString("MainView_ChoooseBookButton_ToolTip", resourceCulture);
+                return ResourceManager.GetString("MainView_ChooseBookButton_ToolTip", resourceCulture);
             }
         }
         
