@@ -9,19 +9,25 @@
         xmlns:r="clr-namespace:BohaWpf.Properties"
         d:DataContext=""
         mc:Ignorable="d"
-        Title="{x:Static r:Literals.ChooseBookView_Title}" Height="450" Width="800">
+        Title="{x:Static r:Literals.ChooseBookView_Title}" Height="450" Width="800" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterOwner">
     <Window.DataContext>
         <vm:ChooseBookViewModel />
     </Window.DataContext>
-    <StackPanel Orientation="Horizontal">
-        <ListView ItemsSource="{Binding Names}" SelectedItem="{Binding SelectedBookName}" TabIndex="1" />
-        <Button Content="Choose Book" Command="{Binding ChooseBookCommand}" CommandParameter="{Binding ElementName=ChoosBookWindow}" TabIndex="2" />
-        <Label Content="New Book" />
-        <TextBox x:Name="NewBookNameTextBox" Width="100" Text="{Binding NewBookName, Mode=TwoWay}" TabIndex="3"/>
-        <Button Content="Add New Book" Command="{Binding AddBookCommand}" TabIndex="4" />
-        <Button Content="Delete Book" Command="{Binding DeleteBookCommand}" TabIndex="5" />
-        <ListView IsEnabled="False">
-            <ListViewItem>Test</ListViewItem>
-        </ListView>
-    </StackPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <ListView Grid.Row="0" ItemsSource="{Binding Names}" SelectedItem="{Binding SelectedBookName}" TabIndex="1"/>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="{x:Static r:Literals.ChooseBookView_DeleteBookButton_Content}" Command="{Binding DeleteBookCommand}" IsTabStop="False" ToolTip="{x:Static r:Literals.ChooseBookView_DeleteBookButton_ToolTip}" />
+            <Button Content="{x:Static r:Literals.MainView_ChooseBookButton_Content}" Command="{Binding ChooseBookCommand}" CommandParameter="{Binding ElementName=ChoosBookWindow}" TabIndex="2" ToolTip="{x:Static r:Literals.MainView_ChooseBookButton_ToolTip}" />
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <Label Content="{x:Static r:Literals.ChooseBookView_NewBookLabel_Text}" />
+            <TextBox x:Name="NewBookNameTextBox" Width="100" Text="{Binding NewBookName}" TabIndex="3"/>
+            <Button Content="{x:Static r:Literals.ChooseBookView_AddNewBook_Content}" Command="{Binding AddBookCommand}" TabIndex="4" ToolTip="{x:Static r:Literals.ChooseBookView_AddNewBook_ToolTip}"/>
+        </StackPanel>
+    </Grid>
 </Window>

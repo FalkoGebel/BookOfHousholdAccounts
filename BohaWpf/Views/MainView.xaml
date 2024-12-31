@@ -22,7 +22,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <DockPanel Grid.Row="0" VerticalAlignment="Center">
-            <Button DockPanel.Dock="Right" Content="{x:Static r:Literals.MainView_ChoooseBookButton_Content}" Command="{Binding ChooseBookCommand}" ToolTip="{x:Static r:Literals.MainView_ChoooseBookButton_ToolTip}" TabIndex="1" IsTabStop="False" />
+            <Button DockPanel.Dock="Right" Content="{x:Static r:Literals.MainView_ChooseBookButton_Content}" Command="{Binding ChooseBookCommand}" ToolTip="{x:Static r:Literals.MainView_ChooseBookButton_ToolTip}" TabIndex="1" IsTabStop="False" />
             <TextBlock Text="{Binding BookName}" />
         </DockPanel>
         <ComboBox Grid.Row="1" ItemsSource="{Binding EntryTypes}" SelectedItem="{Binding ChoosenEntryType}" TabIndex="2" />

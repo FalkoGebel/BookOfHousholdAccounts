@@ -120,6 +120,21 @@
   <data name="ChoosBookView_DeleteConfirmText" xml:space="preserve">
     <value>The book "&lt;BOOKNAME&gt;" and all its data will be deleted. Continue?</value>
   </data>
+  <data name="ChooseBookView_AddNewBook_Content" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="ChooseBookView_AddNewBook_ToolTip" xml:space="preserve">
+    <value>Add New Book</value>
+  </data>
+  <data name="ChooseBookView_DeleteBookButton_Content" xml:space="preserve">
+    <value>D</value>
+  </data>
+  <data name="ChooseBookView_DeleteBookButton_ToolTip" xml:space="preserve">
+    <value>Delete Book</value>
+  </data>
+  <data name="ChooseBookView_NewBookLabel_Text" xml:space="preserve">
+    <value>New Book</value>
+  </data>
   <data name="ChooseBookView_Title" xml:space="preserve">
     <value>Choose Book</value>
   </data>
@@ -129,10 +144,10 @@
   <data name="MainView_AmountLabel_Text" xml:space="preserve">
     <value>Amount</value>
   </data>
-  <data name="MainView_ChoooseBookButton_Content" xml:space="preserve">
+  <data name="MainView_ChooseBookButton_Content" xml:space="preserve">
     <value>C</value>
   </data>
-  <data name="MainView_ChoooseBookButton_ToolTip" xml:space="preserve">
+  <data name="MainView_ChooseBookButton_ToolTip" xml:space="preserve">
     <value>Choose Book</value>
   </data>
   <data name="MainView_CreateEntryButton_Content" xml:space="preserve">
