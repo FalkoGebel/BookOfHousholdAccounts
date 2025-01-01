@@ -5,17 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:BohaWpf.ViewModels"
         xmlns:local="clr-namespace:BohaWpf.Views"
+        xmlns:r="clr-namespace:BohaWpf.Properties"
         mc:Ignorable="d"
-        Title="EditCategoriesView" Height="450" Width="800">
-    <!--<Window.DataContext>
-        <vm:EditCategoriesViewModel />
-    </Window.DataContext>-->
-    <StackPanel Orientation="Horizontal">
-        <ComboBox ItemsSource="{Binding EntryTypes}" SelectedItem="{Binding ChoosenEntryType}" TabIndex="0"/>
-        <ListView ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}" TabIndex="1" />
-        <Label Content="New Category" />
-        <TextBox x:Name="NewCategoryTextBox" Width="100" Text="{Binding NewCategory, Mode=TwoWay}" TabIndex="2"/>
-        <Button Content="Add Category" Command="{Binding AddCategoryCommand}" TabIndex="3"/>
-        <Button Content="Delete Category" Command="{Binding DeleteCategoryCommand}" TabIndex="4"/>
-    </StackPanel>
+        Title="{x:Static r:Literals.EditCategoriesView_Title}" Height="450" Width="800" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterOwner"
+        Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <ComboBox Grid.Row="0" ItemsSource="{Binding EntryTypes}" SelectedItem="{Binding ChoosenEntryType}" TabIndex="0"/>
+        <ListView x:Name="CategoriesListView" Grid.Row="1" ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}" TabIndex="1" />
+        <Button Grid.Row="2" Content="{x:Static r:Literals.EditCategoriesView_DeleteCategoryButton_Content}" Command="{Binding DeleteCategoryCommand}" TabIndex="2" ToolTip="{x:Static r:Literals.EditCategoriesView_DeleteCategoryButton_ToolTip}" HorizontalAlignment="Right"/>
+        <StackPanel Grid.Row="3" Orientation="Horizontal">
+            <Label Content="{x:Static r:Literals.EditCategoriesView_NewCategoryLabel_Text}" />
+            <TextBox x:Name="NewCategoryTextBox" Width="100" Text="{Binding NewCategory}" TabIndex="3"/>
+            <Button Content="{x:Static r:Literals.EditCategoriesView_AddCategoryButton_Content}" Command="{Binding AddCategoryCommand}" TabIndex="4" ToolTip="{x:Static r:Literals.EditCategoriesView_AddCategoryButton_ToolTip}"/>
+        </StackPanel>
+    </Grid>
 </Window>

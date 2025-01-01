@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 
 namespace BohaWpf.Views
 {
@@ -10,6 +11,17 @@ namespace BohaWpf.Views
         public ChooseBookView()
         {
             InitializeComponent();
+        }
+
+        private void ChoosBookWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (BookNamesListView.Items.Count == 0)
+                return;
+
+            if (BookNamesListView.ItemContainerGenerator.ContainerFromIndex(0) is not ListViewItem item)
+                return;
+
+            item.Focus();
         }
     }
 }

@@ -88,7 +88,16 @@ namespace BohaWpf.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die D ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die OK ähnelt.
+        /// </summary>
+        public static string ChooseBookView_ChooseBookButton_Content {
+            get {
+                return ResourceManager.GetString("ChooseBookView_ChooseBookButton_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Delete ähnelt.
         /// </summary>
         public static string ChooseBookView_DeleteBookButton_Content {
             get {
@@ -129,6 +138,60 @@ namespace BohaWpf.Properties {
         public static string ConfirmWindowTitle {
             get {
                 return ResourceManager.GetString("ConfirmWindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Add ähnelt.
+        /// </summary>
+        public static string EditCategoriesView_AddCategoryButton_Content {
+            get {
+                return ResourceManager.GetString("EditCategoriesView_AddCategoryButton_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Add Category ähnelt.
+        /// </summary>
+        public static string EditCategoriesView_AddCategoryButton_ToolTip {
+            get {
+                return ResourceManager.GetString("EditCategoriesView_AddCategoryButton_ToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Delete ähnelt.
+        /// </summary>
+        public static string EditCategoriesView_DeleteCategoryButton_Content {
+            get {
+                return ResourceManager.GetString("EditCategoriesView_DeleteCategoryButton_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Delete Category ähnelt.
+        /// </summary>
+        public static string EditCategoriesView_DeleteCategoryButton_ToolTip {
+            get {
+                return ResourceManager.GetString("EditCategoriesView_DeleteCategoryButton_ToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die New Category ähnelt.
+        /// </summary>
+        public static string EditCategoriesView_NewCategoryLabel_Text {
+            get {
+                return ResourceManager.GetString("EditCategoriesView_NewCategoryLabel_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Edit Categories ähnelt.
+        /// </summary>
+        public static string EditCategoriesView_Title {
+            get {
+                return ResourceManager.GetString("EditCategoriesView_Title", resourceCulture);
             }
         }
         
