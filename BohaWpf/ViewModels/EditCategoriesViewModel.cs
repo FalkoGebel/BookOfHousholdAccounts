@@ -52,6 +52,7 @@ namespace BohaWpf.ViewModels
                               NewCategory);
             _book.SaveToFile();
             LoadAndUpdateCategories();
+            NewCategory = string.Empty;
         }
 
         private void LoadAndUpdateCategories()
