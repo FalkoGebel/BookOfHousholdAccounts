@@ -205,6 +205,24 @@ namespace BohaWpf.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die M ähnelt.
+        /// </summary>
+        public static string MainView_ChangeMonthButton_Content {
+            get {
+                return ResourceManager.GetString("MainView_ChangeMonthButton_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Change Month ähnelt.
+        /// </summary>
+        public static string MainView_ChangeMonthButton_ToolTip {
+            get {
+                return ResourceManager.GetString("MainView_ChangeMonthButton_ToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die C ähnelt.
         /// </summary>
         public static string MainView_ChooseBookButton_Content {

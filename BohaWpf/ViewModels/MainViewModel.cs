@@ -42,6 +42,14 @@ namespace BohaWpf.ViewModels
             }
         }
 
+        public string CurrentMonth
+        {
+            get
+            {
+                return CurrentDate.ToString("MMMM yyyy");
+            }
+        }
+
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(CreateEntryButtonIsEnabled))]
         private string bookName = string.Empty;
@@ -57,7 +65,7 @@ namespace BohaWpf.ViewModels
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(CreateEntryButtonIsEnabled))]
-        private DateTime? _postingDate = DateTime.Now;
+        private DateTime? postingDate = DateTime.Now;
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(CreateEntryButtonIsEnabled))]
@@ -69,6 +77,10 @@ namespace BohaWpf.ViewModels
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(CreateEntryButtonIsEnabled))]
         private string amountInput = string.Empty;
+
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(CurrentMonth))]
+        private DateTime currentDate = DateTime.Now;
 
         [RelayCommand]
         private void ChooseBook()
@@ -112,6 +124,12 @@ namespace BohaWpf.ViewModels
 
             AmountInput = "0";
             MemoText = string.Empty;
+        }
+
+        [RelayCommand]
+        private void ChangeMonth()
+        {
+            MessageBox.Show("Not implemented");
         }
 
         partial void OnAmountInputChanged(string? oldValue, string newValue)

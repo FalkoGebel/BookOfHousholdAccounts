@@ -165,6 +165,12 @@
   <data name="MainView_AmountLabel_Text" xml:space="preserve">
     <value>Amount</value>
   </data>
+  <data name="MainView_ChangeMonthButton_Content" xml:space="preserve">
+    <value>M</value>
+  </data>
+  <data name="MainView_ChangeMonthButton_ToolTip" xml:space="preserve">
+    <value>Change Month</value>
+  </data>
   <data name="MainView_ChooseBookButton_Content" xml:space="preserve">
     <value>C</value>
   </data>
