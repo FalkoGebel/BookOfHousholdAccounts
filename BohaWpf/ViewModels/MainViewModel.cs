@@ -52,35 +52,35 @@ namespace BohaWpf.ViewModels
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(CreateEntryButtonIsEnabled))]
-        private string bookName = string.Empty;
+        private string _bookName = string.Empty;
 
         [ObservableProperty]
-        private List<string> entryTypes = [Properties.Literals.MainView_EntryTypes_Deposit, Properties.Literals.MainView_EntryTypes_Payout];
+        private List<string> _entryTypes = [Properties.Literals.MainView_EntryTypes_Deposit, Properties.Literals.MainView_EntryTypes_Payout];
 
         [ObservableProperty]
-        private string choosenEntryType = Properties.Literals.MainView_EntryTypes_Deposit;
+        private string _choosenEntryType = Properties.Literals.MainView_EntryTypes_Deposit;
 
         [ObservableProperty]
-        private List<string> categories = [];
-
-        [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(CreateEntryButtonIsEnabled))]
-        private DateTime? postingDate = DateTime.Now;
+        private List<string> _categories = [];
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(CreateEntryButtonIsEnabled))]
-        private string choosenCategory = string.Empty;
-
-        [ObservableProperty]
-        private string memoText = string.Empty;
+        private DateTime? _postingDate = DateTime.Now;
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(CreateEntryButtonIsEnabled))]
-        private string amountInput = string.Empty;
+        private string _choosenCategory = string.Empty;
+
+        [ObservableProperty]
+        private string _memoText = string.Empty;
+
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(CreateEntryButtonIsEnabled))]
+        private string _amountInput = string.Empty;
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(CurrentMonth))]
-        private DateTime currentDate = DateTime.Now;
+        private DateTime _currentDate = DateTime.Now;
 
         [RelayCommand]
         private void ChooseBook()
@@ -127,9 +127,14 @@ namespace BohaWpf.ViewModels
         }
 
         [RelayCommand]
-        private void ChangeMonth()
+        private void ChooseMonth()
         {
-            MessageBox.Show("Not implemented");
+            var chooseMonthView = new ChooseMonthView(CurrentDate);
+            chooseMonthView.ShowDialog();
+            DateTime? choosenDate = ((ChooseMonthViewModel)chooseMonthView.DataContext).ChoosenMonth;
+
+            if (choosenDate != null)
+                CurrentDate = choosenDate.Value;
         }
 
         partial void OnAmountInputChanged(string? oldValue, string newValue)
@@ -140,7 +145,7 @@ namespace BohaWpf.ViewModels
             if (decimal.TryParse(newValue, out var decimalValue))
                 _amount = decimalValue;
             else
-                amountInput = oldValue;
+                _amountInput = oldValue;
         }
 
         partial void OnChoosenEntryTypeChanged(string? oldValue, string newValue)

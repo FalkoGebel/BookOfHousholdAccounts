@@ -133,6 +133,33 @@ namespace BohaWpf.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Cancel ähnelt.
+        /// </summary>
+        public static string ChooseMonthView_CancelButton_Content {
+            get {
+                return ResourceManager.GetString("ChooseMonthView_CancelButton_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die OK ähnelt.
+        /// </summary>
+        public static string ChooseMonthView_OkButton_Content {
+            get {
+                return ResourceManager.GetString("ChooseMonthView_OkButton_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Choose Month ähnelt.
+        /// </summary>
+        public static string ChooseMonthView_Title {
+            get {
+                return ResourceManager.GetString("ChooseMonthView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Confirm ähnelt.
         /// </summary>
         public static string ConfirmWindowTitle {
