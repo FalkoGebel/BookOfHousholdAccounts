@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:BohaWpf.Views"
         xmlns:r="clr-namespace:BohaWpf.Properties"
         mc:Ignorable="d"
-        Title="{x:Static r:Literals.EditCategoriesView_Title}" Height="450" Width="800" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterOwner"
+        Title="{x:Static r:Literals.EditCategoriesView_Title}" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen"
         Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>

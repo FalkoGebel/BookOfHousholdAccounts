@@ -1,5 +1,5 @@
 ﻿<Window x:Class="BohaWpf.Views.ChooseBookView"
-        x:Name="ChoosBookWindow"
+        x:Name="ChooseBookWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -9,7 +9,7 @@
         xmlns:r="clr-namespace:BohaWpf.Properties"
         d:DataContext=""
         mc:Ignorable="d"
-        Title="{x:Static r:Literals.ChooseBookView_Title}" Height="450" Width="800" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterOwner"
+        Title="{x:Static r:Literals.ChooseBookView_Title}" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen"
         Loaded="ChoosBookWindow_Loaded">
     <Window.DataContext>
         <vm:ChooseBookViewModel />
@@ -23,7 +23,7 @@
         <ListView x:Name="BookNamesListView" Grid.Row="0" ItemsSource="{Binding Names}" SelectedItem="{Binding SelectedBookName}" TabIndex="1" />
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Content="{x:Static r:Literals.ChooseBookView_DeleteBookButton_Content}" Command="{Binding DeleteBookCommand}" IsTabStop="False" ToolTip="{x:Static r:Literals.ChooseBookView_DeleteBookButton_ToolTip}" />
-            <Button Content="{x:Static r:Literals.ChooseBookView_ChooseBookButton_Content}" Command="{Binding ChooseBookCommand}" CommandParameter="{Binding ElementName=ChoosBookWindow}" TabIndex="2" ToolTip="{x:Static r:Literals.MainView_ChooseBookButton_ToolTip}" />
+            <Button Content="{x:Static r:Literals.ChooseBookView_ChooseBookButton_Content}" Command="{Binding ChooseBookCommand}" CommandParameter="{Binding ElementName=ChooseBookWindow}" TabIndex="2" ToolTip="{x:Static r:Literals.MainView_ChooseBookButton_ToolTip}" />
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal">
             <Label Content="{x:Static r:Literals.ChooseBookView_NewBookLabel_Text}" />

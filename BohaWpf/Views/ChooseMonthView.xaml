@@ -1,0 +1,31 @@
+﻿<Window x:Class="BohaWpf.Views.ChooseMonthView"
+        x:Name="ChooseMonthWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BohaWpf.Views"
+        xmlns:vm="clr-namespace:BohaWpf.ViewModels"
+        xmlns:r="clr-namespace:BohaWpf.Properties"
+        mc:Ignorable="d"
+        Title="{x:Static r:Literals.ChooseMonthView_Title}" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+    <!--<Window.DataContext>
+        <vm:ChooseMonthViewModel />
+    </Window.DataContext>-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Calendar x:Name="CurrentMonthCalendar"
+                  Grid.Row="0"
+                  DisplayDate="{Binding SelectedDate}"
+                  DisplayMode="Year"
+                  DisplayModeChanged="Calendar_DisplayModeChanged"
+                  SelectionMode="None" />
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="{x:Static r:Literals.ChooseMonthView_OkButton_Content}" Command="{Binding OkCommand}" CommandParameter="{Binding ElementName=ChooseMonthWindow}"/>
+            <Button Content="{x:Static r:Literals.ChooseMonthView_CancelButton_Content}" IsCancel="True" />
+        </StackPanel>
+    </Grid>
+</Window>
