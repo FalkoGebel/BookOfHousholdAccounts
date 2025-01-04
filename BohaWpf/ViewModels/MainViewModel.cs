@@ -130,6 +130,7 @@ namespace BohaWpf.ViewModels
         private void ChooseMonth()
         {
             var chooseMonthView = new ChooseMonthView(CurrentDate);
+            //var chooseMonthView = new ChooseMonthView();
             chooseMonthView.ShowDialog();
             DateTime? choosenDate = ((ChooseMonthViewModel)chooseMonthView.DataContext).ChoosenMonth;
 

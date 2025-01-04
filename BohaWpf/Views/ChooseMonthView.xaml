@@ -8,21 +8,20 @@
         xmlns:vm="clr-namespace:BohaWpf.ViewModels"
         xmlns:r="clr-namespace:BohaWpf.Properties"
         mc:Ignorable="d"
-        Title="{x:Static r:Literals.ChooseMonthView_Title}" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+        Title="{x:Static r:Literals.ChooseMonthView_Title}" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <!--<Window.DataContext>
         <vm:ChooseMonthViewModel />
     </Window.DataContext>-->
-    <Grid>
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
         <Calendar x:Name="CurrentMonthCalendar"
                   Grid.Row="0"
-                  DisplayDate="{Binding SelectedDate}"
-                  DisplayMode="Year"
-                  DisplayModeChanged="Calendar_DisplayModeChanged"
-                  SelectionMode="None" />
+                  DisplayDate="{Binding CurrentDate}"
+                  Margin="5"
+                  SelectionMode="None"/>
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Content="{x:Static r:Literals.ChooseMonthView_OkButton_Content}" Command="{Binding OkCommand}" CommandParameter="{Binding ElementName=ChooseMonthWindow}"/>
             <Button Content="{x:Static r:Literals.ChooseMonthView_CancelButton_Content}" IsCancel="True" />
