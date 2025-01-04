@@ -6,7 +6,7 @@ namespace BohaWpf.ViewModels
 {
     public partial class ChooseMonthViewModel : ObservableObject
     {
-        private DateTime _currentMonth;
+        private readonly DateTime _currentMonth;
 
         public DateTime? ChoosenMonth { get; private set; }
 
@@ -17,18 +17,18 @@ namespace BohaWpf.ViewModels
         }
 
         [ObservableProperty]
-        private DateTime _selectedDate;
+        private DateTime _currentDate;
 
         [RelayCommand]
         private void Ok(Window window)
         {
-            ChoosenMonth = SelectedDate;
+            ChoosenMonth = CurrentDate;
             window.Close();
         }
 
         private void SetCurrentMonth()
         {
-            SelectedDate = _currentMonth;
+            CurrentDate = _currentMonth;
         }
     }
 }
