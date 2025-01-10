@@ -60,6 +60,7 @@
                 <Button DockPanel.Dock="Right" Content="{x:Static r:Literals.MainView_ChangeMonthButton_Content}" Command="{Binding ChooseMonthCommand}" ToolTip="{x:Static r:Literals.MainView_ChangeMonthButton_ToolTip}" IsTabStop="False" />
                 <TextBlock Text="{Binding CurrentMonth}" />
             </DockPanel>
+            <DataGrid Grid.Column="0" Grid.Row="1" Grid.RowSpan="6" ItemsSource="{Binding Entries}" />
         </Grid>
     </Grid>
 </Window>

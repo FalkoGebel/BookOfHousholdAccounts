@@ -1,4 +1,5 @@
 ﻿using BohaLibrary;
+using BohaLibrary.Models;
 using BohaWpf.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -82,6 +83,9 @@ namespace BohaWpf.ViewModels
         [NotifyPropertyChangedFor(nameof(CurrentMonth))]
         private DateTime _currentDate = DateTime.Now;
 
+        [ObservableProperty]
+        List<BookEntryModel> _entries = [];
+
         [RelayCommand]
         private void ChooseBook()
         {
@@ -124,18 +128,23 @@ namespace BohaWpf.ViewModels
 
             AmountInput = "0";
             MemoText = string.Empty;
+
+            LoadAndUpdateEntries();
         }
 
         [RelayCommand]
         private void ChooseMonth()
         {
             var chooseMonthView = new ChooseMonthView(CurrentDate);
-            //var chooseMonthView = new ChooseMonthView();
             chooseMonthView.ShowDialog();
             DateTime? choosenDate = ((ChooseMonthViewModel)chooseMonthView.DataContext).ChoosenMonth;
 
             if (choosenDate != null)
+            {
                 CurrentDate = choosenDate.Value;
+                LoadAndUpdateEntries();
+            }
+
         }
 
         partial void OnAmountInputChanged(string? oldValue, string newValue)
@@ -168,6 +177,17 @@ namespace BohaWpf.ViewModels
                                          .ToList();
         }
 
+        private void LoadAndUpdateEntries()
+        {
+            if (_book == null)
+                return;
+
+            _book.LoadFromFile();
+            DateTime firstOfMonth = new DateTime(CurrentDate.Year, CurrentDate.Month, 1),
+                     endOfMonth = firstOfMonth.AddMonths(1).AddDays(-1);
+            Entries = _book.Entries.Where(e => e.PostingDate >= firstOfMonth && e.PostingDate <= endOfMonth).ToList();
+        }
+
         private void SetBook(string bookName)
         {
             BookName = bookName;
@@ -176,6 +196,7 @@ namespace BohaWpf.ViewModels
             {
                 _book = new BookOfHouseholdAccounts(_pathFiles, BookName);
                 LoadAndUpdateCategories();
+                LoadAndUpdateEntries();
             }
         }
     }
