@@ -304,6 +304,42 @@ namespace BohaWpf.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Amount ähnelt.
+        /// </summary>
+        public static string MainView_EntriesDataGrid_Header_Amount {
+            get {
+                return ResourceManager.GetString("MainView_EntriesDataGrid_Header_Amount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Category ähnelt.
+        /// </summary>
+        public static string MainView_EntriesDataGrid_Header_Category {
+            get {
+                return ResourceManager.GetString("MainView_EntriesDataGrid_Header_Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Date ähnelt.
+        /// </summary>
+        public static string MainView_EntriesDataGrid_Header_Date {
+            get {
+                return ResourceManager.GetString("MainView_EntriesDataGrid_Header_Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Memo ähnelt.
+        /// </summary>
+        public static string MainView_EntriesDataGrid_Header_MemoText {
+            get {
+                return ResourceManager.GetString("MainView_EntriesDataGrid_Header_MemoText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Deposit ähnelt.
         /// </summary>
         public static string MainView_EntryTypes_Deposit {

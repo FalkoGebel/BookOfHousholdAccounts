@@ -60,7 +60,14 @@
                 <Button DockPanel.Dock="Right" Content="{x:Static r:Literals.MainView_ChangeMonthButton_Content}" Command="{Binding ChooseMonthCommand}" ToolTip="{x:Static r:Literals.MainView_ChangeMonthButton_ToolTip}" IsTabStop="False" />
                 <TextBlock Text="{Binding CurrentMonth}" />
             </DockPanel>
-            <DataGrid Grid.Column="0" Grid.Row="1" Grid.RowSpan="6" ItemsSource="{Binding Entries}" />
+            <DataGrid Grid.Column="0" Grid.Row="1" Grid.RowSpan="6" ItemsSource="{Binding Entries}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{x:Static r:Literals.MainView_EntriesDataGrid_Header_Date}" Binding="{Binding Date}"/>
+                    <DataGridTextColumn Header="{x:Static r:Literals.MainView_EntriesDataGrid_Header_Category}" Binding="{Binding Category}"/>
+                    <DataGridTextColumn Header="{x:Static r:Literals.MainView_EntriesDataGrid_Header_MemoText}" Binding="{Binding MemoText}"/>
+                    <DataGridTextColumn Header="{x:Static r:Literals.MainView_EntriesDataGrid_Header_Amount}" Binding="{Binding Amount}"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
     </Grid>
 </Window>

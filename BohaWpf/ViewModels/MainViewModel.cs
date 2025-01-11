@@ -1,5 +1,4 @@
 ﻿using BohaLibrary;
-using BohaLibrary.Models;
 using BohaWpf.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -84,7 +83,7 @@ namespace BohaWpf.ViewModels
         private DateTime _currentDate = DateTime.Now;
 
         [ObservableProperty]
-        List<BookEntryModel> _entries = [];
+        List<EntryTableLine> _entries = [];
 
         [RelayCommand]
         private void ChooseBook()
@@ -183,9 +182,21 @@ namespace BohaWpf.ViewModels
                 return;
 
             _book.LoadFromFile();
-            DateTime firstOfMonth = new DateTime(CurrentDate.Year, CurrentDate.Month, 1),
+            DateTime firstOfMonth = new(CurrentDate.Year, CurrentDate.Month, 1),
                      endOfMonth = firstOfMonth.AddMonths(1).AddDays(-1);
-            Entries = _book.Entries.Where(e => e.PostingDate >= firstOfMonth && e.PostingDate <= endOfMonth).ToList();
+
+            List<EntryTableLine> lines = [];
+            foreach (var entry in _book.Entries.Where(e => e.PostingDate >= firstOfMonth && e.PostingDate <= endOfMonth).OrderBy(e => e.PostingDate))
+            {
+                lines.Add(new EntryTableLine()
+                {
+                    Date = entry.PostingDate.ToShortDateString(),
+                    Category = entry.CategoryName,
+                    MemoText = entry.MemoText,
+                    Amount = ((entry.EntryType == BookEntryType.Deposit ? 1 : -1) * entry.Amount).ToString("f2")
+                });
+            }
+            Entries = lines;
         }
 
         private void SetBook(string bookName)
@@ -199,5 +210,13 @@ namespace BohaWpf.ViewModels
                 LoadAndUpdateEntries();
             }
         }
+    }
+
+    public class EntryTableLine
+    {
+        public string Date { get; set; } = string.Empty;
+        public string Category { get; set; } = string.Empty;
+        public string MemoText { get; set; } = string.Empty;
+        public string Amount { get; set; } = string.Empty;
     }
 }
