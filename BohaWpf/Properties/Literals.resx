@@ -198,6 +198,18 @@
   <data name="MainView_EditCategoriesButton_ToolTip" xml:space="preserve">
     <value>Edit Categories</value>
   </data>
+  <data name="MainView_EntriesDataGrid_Header_Amount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="MainView_EntriesDataGrid_Header_Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="MainView_EntriesDataGrid_Header_Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="MainView_EntriesDataGrid_Header_MemoText" xml:space="preserve">
+    <value>Memo</value>
+  </data>
   <data name="MainView_EntryTypes_Deposit" xml:space="preserve">
     <value>Deposit</value>
   </data>
