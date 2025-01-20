@@ -219,6 +219,18 @@
   <data name="MainView_MemoTextLabel_Text" xml:space="preserve">
     <value>Memo Text</value>
   </data>
+  <data name="MainView_NextMonthButton_Content" xml:space="preserve">
+    <value>&gt;</value>
+  </data>
+  <data name="MainView_NextMonthButton_ToolTip" xml:space="preserve">
+    <value>Next Month</value>
+  </data>
+  <data name="MainView_PreviousMonthButton_Content" xml:space="preserve">
+    <value>&lt;</value>
+  </data>
+  <data name="MainView_PreviousMonthButton_ToolTip" xml:space="preserve">
+    <value>Previous Month</value>
+  </data>
   <data name="MainView_Title" xml:space="preserve">
     <value>BOHA - Book Of Household Accounts</value>
   </data>

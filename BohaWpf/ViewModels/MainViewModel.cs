@@ -146,6 +146,22 @@ namespace BohaWpf.ViewModels
 
         }
 
+        [RelayCommand]
+        private void PreviousMonth()
+        {
+            DateTime newDate = CurrentDate.AddMonths(-1);
+            CurrentDate = newDate;
+            LoadAndUpdateEntries();
+        }
+
+        [RelayCommand]
+        private void NextMonth()
+        {
+            DateTime newDate = CurrentDate.AddMonths(1);
+            CurrentDate = newDate;
+            LoadAndUpdateEntries();
+        }
+
         partial void OnAmountInputChanged(string? oldValue, string newValue)
         {
             if (oldValue == null)
