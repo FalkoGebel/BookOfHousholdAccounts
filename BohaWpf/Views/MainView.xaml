@@ -58,7 +58,11 @@
             </Grid.RowDefinitions>
             <DockPanel Grid.Column="0" Grid.Row="0" VerticalAlignment="Center">
                 <Button DockPanel.Dock="Right" Content="{x:Static r:Literals.MainView_ChangeMonthButton_Content}" Command="{Binding ChooseMonthCommand}" ToolTip="{x:Static r:Literals.MainView_ChangeMonthButton_ToolTip}" IsTabStop="False" />
-                <TextBlock Text="{Binding CurrentMonth}" />
+                <DockPanel>
+                    <Button DockPanel.Dock="Left" Content="{x:Static r:Literals.MainView_PreviousMonthButton_Content}" Command="{Binding PreviousMonthCommand}" ToolTip="{x:Static r:Literals.MainView_PreviousMonthButton_ToolTip}" IsTabStop="False" />
+                    <Button DockPanel.Dock="Right" Content="{x:Static r:Literals.MainView_NextMonthButton_Content}" Command="{Binding NextMonthCommand}" ToolTip="{x:Static r:Literals.MainView_NextMonthButton_ToolTip}" IsTabStop="False" />
+                    <TextBlock Text="{Binding CurrentMonth}" />
+                </DockPanel>
             </DockPanel>
             <DataGrid Grid.Column="0" Grid.Row="1" Grid.RowSpan="6" ItemsSource="{Binding Entries}">
                 <DataGrid.Columns>

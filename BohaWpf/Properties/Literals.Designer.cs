@@ -367,6 +367,42 @@ namespace BohaWpf.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &gt; ähnelt.
+        /// </summary>
+        public static string MainView_NextMonthButton_Content {
+            get {
+                return ResourceManager.GetString("MainView_NextMonthButton_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Next Month ähnelt.
+        /// </summary>
+        public static string MainView_NextMonthButton_ToolTip {
+            get {
+                return ResourceManager.GetString("MainView_NextMonthButton_ToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt; ähnelt.
+        /// </summary>
+        public static string MainView_PreviousMonthButton_Content {
+            get {
+                return ResourceManager.GetString("MainView_PreviousMonthButton_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Previous Month ähnelt.
+        /// </summary>
+        public static string MainView_PreviousMonthButton_ToolTip {
+            get {
+                return ResourceManager.GetString("MainView_PreviousMonthButton_ToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die BOHA - Book Of Household Accounts ähnelt.
         /// </summary>
         public static string MainView_Title {
