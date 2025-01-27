@@ -286,6 +286,24 @@ namespace BohaWpf.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die D ähnelt.
+        /// </summary>
+        public static string MainView_DeleteEntryButton_Content {
+            get {
+                return ResourceManager.GetString("MainView_DeleteEntryButton_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Delete Entry ähnelt.
+        /// </summary>
+        public static string MainView_DeleteEntryButton_ToolTip {
+            get {
+                return ResourceManager.GetString("MainView_DeleteEntryButton_ToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die E ähnelt.
         /// </summary>
         public static string MainView_EditCategoriesButton_Content {

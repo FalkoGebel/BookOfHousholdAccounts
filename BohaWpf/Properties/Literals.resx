@@ -192,6 +192,12 @@
   <data name="MainView_DefaultBookName" xml:space="preserve">
     <value>Default</value>
   </data>
+  <data name="MainView_DeleteEntryButton_Content" xml:space="preserve">
+    <value>D</value>
+  </data>
+  <data name="MainView_DeleteEntryButton_ToolTip" xml:space="preserve">
+    <value>Delete Entry</value>
+  </data>
   <data name="MainView_EditCategoriesButton_Content" xml:space="preserve">
     <value>E</value>
   </data>

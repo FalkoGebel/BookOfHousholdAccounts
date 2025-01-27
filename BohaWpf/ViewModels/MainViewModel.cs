@@ -85,6 +85,9 @@ namespace BohaWpf.ViewModels
         [ObservableProperty]
         List<EntryTableLine> _entries = [];
 
+        [ObservableProperty]
+        EntryTableLine? _selectedEntry = null;
+
         [RelayCommand]
         private void ChooseBook()
         {
@@ -162,6 +165,26 @@ namespace BohaWpf.ViewModels
             LoadAndUpdateEntries();
         }
 
+        [RelayCommand]
+        private void DeleteEntry()
+        {
+            if (SelectedEntry == null || _book == null)
+                return;
+
+            // TODO - create separate window for confirmation
+            string msg = "Do you want to delete the following entry?\n";
+            msg += $"Date: {SelectedEntry.Date}\n";
+            msg += $"Category: {SelectedEntry.Category}\n";
+            msg += $"Memo: {SelectedEntry.MemoText}\n";
+            msg += $"Amount: {SelectedEntry.Amount}";
+            if (MessageBox.Show(msg, "Confirm", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                _book.DeleteBookEntry(SelectedEntry.Id);
+                _book.SaveToFile();
+                LoadAndUpdateEntries();
+            }
+        }
+
         partial void OnAmountInputChanged(string? oldValue, string newValue)
         {
             if (oldValue == null)
@@ -206,6 +229,7 @@ namespace BohaWpf.ViewModels
             {
                 lines.Add(new EntryTableLine()
                 {
+                    Id = entry.Id,
                     Date = entry.PostingDate.ToShortDateString(),
                     Category = entry.CategoryName,
                     MemoText = entry.MemoText,
@@ -230,6 +254,7 @@ namespace BohaWpf.ViewModels
 
     public class EntryTableLine
     {
+        public int Id { get; set; }
         public string Date { get; set; } = string.Empty;
         public string Category { get; set; } = string.Empty;
         public string MemoText { get; set; } = string.Empty;
