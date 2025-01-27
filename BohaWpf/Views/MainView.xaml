@@ -64,14 +64,21 @@
                     <TextBlock Text="{Binding CurrentMonth}" />
                 </DockPanel>
             </DockPanel>
-            <DataGrid Grid.Column="0" Grid.Row="1" Grid.RowSpan="6" ItemsSource="{Binding Entries}">
+            <DataGrid Grid.Column="0" Grid.Row="1" Grid.RowSpan="5" ItemsSource="{Binding Entries}" SelectedItem="{Binding SelectedEntry}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="{x:Static r:Literals.MainView_EntriesDataGrid_Header_Date}" Binding="{Binding Date}"/>
                     <DataGridTextColumn Header="{x:Static r:Literals.MainView_EntriesDataGrid_Header_Category}" Binding="{Binding Category}"/>
                     <DataGridTextColumn Header="{x:Static r:Literals.MainView_EntriesDataGrid_Header_MemoText}" Binding="{Binding MemoText}"/>
-                    <DataGridTextColumn Header="{x:Static r:Literals.MainView_EntriesDataGrid_Header_Amount}" Binding="{Binding Amount}"/>
+                    <DataGridTextColumn Header="{x:Static r:Literals.MainView_EntriesDataGrid_Header_Amount}" Binding="{Binding Amount}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="HorizontalAlignment" Value="Right" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
+            <Button Grid.Column="0" Grid.Row="7" HorizontalAlignment="Right" Content="{x:Static r:Literals.MainView_DeleteEntryButton_Content}" ToolTip="{x:Static r:Literals.MainView_DeleteEntryButton_ToolTip}" Command="{Binding DeleteEntryCommand}"/>
         </Grid>
     </Grid>
 </Window>
