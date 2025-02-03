@@ -150,6 +150,9 @@
   <data name="ChooseMonthView_Title" xml:space="preserve">
     <value>Choose Month</value>
   </data>
+  <data name="ConfirmView_Title" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
   <data name="ConfirmWindowTitle" xml:space="preserve">
     <value>Confirm</value>
   </data>
@@ -170,6 +173,12 @@
   </data>
   <data name="EditCategoriesView_Title" xml:space="preserve">
     <value>Edit Categories</value>
+  </data>
+  <data name="General_NoButton_Content" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="General_YesButton_Content" xml:space="preserve">
+    <value>Yes</value>
   </data>
   <data name="MainView_AmountLabel_Text" xml:space="preserve">
     <value>Amount</value>

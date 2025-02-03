@@ -171,13 +171,16 @@ namespace BohaWpf.ViewModels
             if (SelectedEntry == null || _book == null)
                 return;
 
-            // TODO - create separate window for confirmation
             string msg = "Do you want to delete the following entry?\n";
             msg += $"Date: {SelectedEntry.Date}\n";
             msg += $"Category: {SelectedEntry.Category}\n";
             msg += $"Memo: {SelectedEntry.MemoText}\n";
             msg += $"Amount: {SelectedEntry.Amount}";
-            if (MessageBox.Show(msg, "Confirm", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+
+            var confirmView = new ConfirmView(msg);
+            confirmView.ShowDialog();
+
+            if (((ConfirmViewModel)confirmView.DataContext).Confirmed)
             {
                 _book.DeleteBookEntry(SelectedEntry.Id);
                 _book.SaveToFile();
