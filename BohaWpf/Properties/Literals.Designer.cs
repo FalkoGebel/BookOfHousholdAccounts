@@ -162,6 +162,15 @@ namespace BohaWpf.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Confirm ähnelt.
         /// </summary>
+        public static string ConfirmView_Title {
+            get {
+                return ResourceManager.GetString("ConfirmView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Confirm ähnelt.
+        /// </summary>
         public static string ConfirmWindowTitle {
             get {
                 return ResourceManager.GetString("ConfirmWindowTitle", resourceCulture);
@@ -219,6 +228,24 @@ namespace BohaWpf.Properties {
         public static string EditCategoriesView_Title {
             get {
                 return ResourceManager.GetString("EditCategoriesView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die No ähnelt.
+        /// </summary>
+        public static string General_NoButton_Content {
+            get {
+                return ResourceManager.GetString("General_NoButton_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Yes ähnelt.
+        /// </summary>
+        public static string General_YesButton_Content {
+            get {
+                return ResourceManager.GetString("General_YesButton_Content", resourceCulture);
             }
         }
         
