@@ -1,4 +1,5 @@
 ﻿using BohaLibrary;
+using BohaWpf.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
@@ -39,13 +40,13 @@ namespace BohaWpf.ViewModels
             if (SelectedCategory == string.Empty)
                 return;
 
-            //var confirmView = new ConfirmView(Properties.Literals.EditCategoriesView_DeleteConfirmText
-            //                                                     .Replace("<BOOKNAME>", _book.Name)
-            //                                                     .Replace("<CATEGORY>", SelectedCategory));
-            //confirmView.ShowDialog();
+            var confirmView = new ConfirmView(Properties.Literals.EditCategoriesView_DeleteConfirmText
+                                                                 .Replace("<BOOKNAME>", _book.Name)
+                                                                 .Replace("<CATEGORY>", SelectedCategory));
+            confirmView.ShowDialog();
 
-            //if (((ConfirmViewModel)confirmView.DataContext).Confirmed == false)
-            //    return;
+            if (((ConfirmViewModel)confirmView.DataContext).Confirmed == false)
+                return;
 
             _book.DeleteCategory(ChoosenEntryType == Properties.Literals.MainView_EntryTypes_Deposit
                                    ? BookEntryType.Deposit

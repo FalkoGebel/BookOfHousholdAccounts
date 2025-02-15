@@ -57,7 +57,7 @@ namespace BohaWpf.ViewModels
             if (SelectedBookName == null)
                 return;
 
-            var confirmView = new ConfirmView(Properties.Literals.ChoosBookView_DeleteConfirmText.Replace("<BOOKNAME>", SelectedBookName));
+            var confirmView = new ConfirmView(Properties.Literals.ChooseBookView_DeleteConfirmText.Replace("<BOOKNAME>", SelectedBookName));
             confirmView.ShowDialog();
 
             if (((ConfirmViewModel)confirmView.DataContext).Confirmed == false)

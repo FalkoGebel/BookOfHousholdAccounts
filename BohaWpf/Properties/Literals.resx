@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ChoosBookView_DeleteConfirmText" xml:space="preserve">
-    <value>The book "&lt;BOOKNAME&gt;" and all its data will be deleted. Continue?</value>
-  </data>
   <data name="ChooseBookView_AddNewBook_Content" xml:space="preserve">
     <value>Add</value>
   </data>
@@ -134,6 +131,9 @@
   </data>
   <data name="ChooseBookView_DeleteBookButton_ToolTip" xml:space="preserve">
     <value>Delete Book</value>
+  </data>
+  <data name="ChooseBookView_DeleteConfirmText" xml:space="preserve">
+    <value>The book "&lt;BOOKNAME&gt;" and all its data will be deleted. Continue?</value>
   </data>
   <data name="ChooseBookView_NewBookLabel_Text" xml:space="preserve">
     <value>New Book</value>
@@ -164,6 +164,9 @@
   </data>
   <data name="EditCategoriesView_DeleteCategoryButton_ToolTip" xml:space="preserve">
     <value>Delete Category</value>
+  </data>
+  <data name="EditCategoriesView_DeleteConfirmText" xml:space="preserve">
+    <value>The category "&lt;CATEGORY&gt;" of the book "&lt;BOOKNAME&gt;" will be removed. Continue?</value>
   </data>
   <data name="EditCategoriesView_NewCategoryLabel_Text" xml:space="preserve">
     <value>New Category</value>

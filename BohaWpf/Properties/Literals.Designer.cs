@@ -63,9 +63,9 @@ namespace BohaWpf.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die The book &quot;&lt;BOOKNAME&gt;&quot; and all its data will be deleted. Continue? ähnelt.
         /// </summary>
-        public static string ChoosBookView_DeleteConfirmText {
+        public static string ChooseBookView_DeleteConfirmText {
             get {
-                return ResourceManager.GetString("ChoosBookView_DeleteConfirmText", resourceCulture);
+                return ResourceManager.GetString("ChooseBookView_DeleteConfirmText", resourceCulture);
             }
         }
         
@@ -212,7 +212,18 @@ namespace BohaWpf.Properties {
                 return ResourceManager.GetString("EditCategoriesView_DeleteCategoryButton_ToolTip", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die The category &quot;&lt;CATEGORYE&gt;&quot; of the book &quot;&lt;BOOKNAMEE&gt;&quot; will be removed. Continue? ähnelt.
+        /// </summary>
+        public static string EditCategoriesView_DeleteConfirmText
+        {
+            get
+            {
+                return ResourceManager.GetString("EditCategoriesView_DeleteConfirmText", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die New Category ähnelt.
         /// </summary>
