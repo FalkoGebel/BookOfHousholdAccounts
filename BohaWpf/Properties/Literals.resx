@@ -153,9 +153,6 @@
   <data name="ConfirmView_Title" xml:space="preserve">
     <value>Confirm</value>
   </data>
-  <data name="ConfirmWindowTitle" xml:space="preserve">
-    <value>Confirm</value>
-  </data>
   <data name="EditCategoriesView_AddCategoryButton_Content" xml:space="preserve">
     <value>Add</value>
   </data>
@@ -172,7 +169,7 @@
     <value>New Category</value>
   </data>
   <data name="EditCategoriesView_Title" xml:space="preserve">
-    <value>Edit Categories</value>
+    <value>Edit Categories "&lt;BOOKNAME&gt;"</value>
   </data>
   <data name="General_NoButton_Content" xml:space="preserve">
     <value>No</value>

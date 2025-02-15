@@ -14,16 +14,7 @@ namespace BohaWpf.ViewModels
 
         public MainViewModel()
         {
-            BooksOfHouseholdAccounts books = new();
-            books.LoadFromFile(_pathFiles);
-            if (books.LastBookName == string.Empty)
-            {
-                if (books.Names.Count != 0)
-                    books.LastBookName = books.Names[0];
-                else
-                    books.AddBook(Properties.Literals.MainView_DefaultBookName);
-            }
-            SetBook(books.LastBookName);
+            SetBook();
             AmountInput = "0";
         }
 
@@ -93,9 +84,7 @@ namespace BohaWpf.ViewModels
         {
             var chooseBookView = new ChooseBookView();
             chooseBookView.ShowDialog();
-            string bookName = ((ChooseBookViewModel)chooseBookView.DataContext).ChoosenBook;
-            if (!string.IsNullOrEmpty(bookName))
-                SetBook(bookName);
+            SetBook();
         }
 
         [RelayCommand]
@@ -242,13 +231,22 @@ namespace BohaWpf.ViewModels
             Entries = lines;
         }
 
-        private void SetBook(string bookName)
+        private void SetBook()
         {
-            BookName = bookName;
-
-            if (BookName != string.Empty)
+            BooksOfHouseholdAccounts books = new();
+            books.LoadFromFile(_pathFiles);
+            if (books.LastBookName == string.Empty)
             {
-                _book = new BookOfHouseholdAccounts(_pathFiles, BookName);
+                if (books.Names.Count != 0)
+                    books.LastBookName = books.Names[0];
+                else
+                    books.AddBook(Properties.Literals.MainView_DefaultBookName);
+            }
+
+            if (_book == null || _book.Name != books.LastBookName)
+            {
+                _book = new BookOfHouseholdAccounts(_pathFiles, books.LastBookName);
+                BookName = _book.Name;
                 LoadAndUpdateCategories();
                 LoadAndUpdateEntries();
             }

@@ -1,4 +1,5 @@
 ﻿using BohaLibrary;
+using BohaWpf.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
@@ -10,8 +11,6 @@ namespace BohaWpf.ViewModels
     {
         private readonly BooksOfHouseholdAccounts _books;
         private readonly string _pathFiles = Application.Current.Properties["PathFiles"] as string ?? throw new ArgumentNullException(nameof(_pathFiles));
-
-        public string ChoosenBook { get; private set; } = string.Empty;
 
         public ChooseBookViewModel()
         {
@@ -47,8 +46,7 @@ namespace BohaWpf.ViewModels
         [RelayCommand]
         private void ChooseBook(Window window)
         {
-            ChoosenBook = SelectedBookName;
-            _books.LastBookName = ChoosenBook;
+            _books.LastBookName = SelectedBookName;
             _books.SaveToFile(_pathFiles);
             window.Close();
         }
@@ -59,9 +57,10 @@ namespace BohaWpf.ViewModels
             if (SelectedBookName == null)
                 return;
 
-            if (MessageBox.Show(Properties.Literals.ChoosBookView_DeleteConfirmText.Replace("<BOOKNAME>", SelectedBookName),
-                                Properties.Literals.ConfirmWindowTitle,
-                                MessageBoxButton.YesNo) != MessageBoxResult.Yes)
+            var confirmView = new ConfirmView(Properties.Literals.ChoosBookView_DeleteConfirmText.Replace("<BOOKNAME>", SelectedBookName));
+            confirmView.ShowDialog();
+
+            if (((ConfirmViewModel)confirmView.DataContext).Confirmed == false)
                 return;
 
             try
@@ -82,7 +81,7 @@ namespace BohaWpf.ViewModels
         private void LoadBooksAndUpdateNames()
         {
             _books.LoadFromFile(_pathFiles);
-            Names = new ObservableCollection<string>(_books.Names);
+            Names = [.. _books.Names];
         }
     }
 }
