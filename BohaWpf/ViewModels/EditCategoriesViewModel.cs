@@ -1,4 +1,5 @@
 ﻿using BohaLibrary;
+using BohaWpf.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
@@ -12,7 +13,11 @@ namespace BohaWpf.ViewModels
         {
             _book = book;
             LoadAndUpdateCategories();
+            _title = Properties.Literals.EditCategoriesView_Title.Replace("<BOOKNAME>", _book.Name);
         }
+
+        [ObservableProperty]
+        private string _title;
 
         [ObservableProperty]
         private List<string> entryTypes = [Properties.Literals.MainView_EntryTypes_Deposit, Properties.Literals.MainView_EntryTypes_Payout];
@@ -33,6 +38,14 @@ namespace BohaWpf.ViewModels
         private void DeleteCategory()
         {
             if (SelectedCategory == string.Empty)
+                return;
+
+            var confirmView = new ConfirmView(Properties.Literals.EditCategoriesView_DeleteConfirmText
+                                                                 .Replace("<BOOKNAME>", _book.Name)
+                                                                 .Replace("<CATEGORY>", SelectedCategory));
+            confirmView.ShowDialog();
+
+            if (((ConfirmViewModel)confirmView.DataContext).Confirmed == false)
                 return;
 
             _book.DeleteCategory(ChoosenEntryType == Properties.Literals.MainView_EntryTypes_Deposit
@@ -58,11 +71,10 @@ namespace BohaWpf.ViewModels
         private void LoadAndUpdateCategories()
         {
             _book.LoadFromFile();
-            Categories = _book.Categories.Where(c => c.EntryType == (ChoosenEntryType == Properties.Literals.MainView_EntryTypes_Deposit
+            Categories = [.. _book.Categories.Where(c => c.EntryType == (ChoosenEntryType == Properties.Literals.MainView_EntryTypes_Deposit
                                                                        ? BookEntryType.Deposit
                                                                        : BookEntryType.Payout))
-                                         .Select(c => c.Name)
-                                         .ToList();
+                                             .Select(c => c.Name)];
         }
 
         partial void OnChoosenEntryTypeChanged(string? oldValue, string newValue)
