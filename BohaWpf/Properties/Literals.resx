@@ -151,7 +151,7 @@
     <value>Choose Month</value>
   </data>
   <data name="ConfirmView_Title" xml:space="preserve">
-    <value>Confirm</value>
+    <value>Confirmation</value>
   </data>
   <data name="EditCategoriesView_AddCategoryButton_Content" xml:space="preserve">
     <value>Add</value>
