@@ -67,10 +67,11 @@ namespace BohaWpf.ViewModels
             {
                 _books.DeleteBook(SelectedBookName);
                 _books.SaveToFile(_pathFiles);
-                LoadBooksAndUpdateNames();
 
                 BookOfHouseholdAccounts book = new(_pathFiles, SelectedBookName);
                 book.DeleteFile();
+
+                LoadBooksAndUpdateNames();
             }
             catch (ArgumentException ae)
             {
