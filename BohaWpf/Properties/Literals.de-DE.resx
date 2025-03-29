@@ -117,7 +117,136 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="MainWindowTitle" xml:space="preserve">
+  <data name="ChooseBookView_AddNewBook_Content" xml:space="preserve">
+    <value>Hinzufügen</value>
+  </data>
+  <data name="ChooseBookView_AddNewBook_ToolTip" xml:space="preserve">
+    <value>Neues Buch hinzufügen</value>
+  </data>
+  <data name="ChooseBookView_ChooseBookButton_Content" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ChooseBookView_DeleteBookButton_Content" xml:space="preserve">
+    <value>Löschen</value>
+  </data>
+  <data name="ChooseBookView_DeleteBookButton_ToolTip" xml:space="preserve">
+    <value>Buch Löschen</value>
+  </data>
+  <data name="ChooseBookView_DeleteConfirmText" xml:space="preserve">
+    <value>Das Buch "&lt;BOOKNAME&gt;" und alle seine Daten werden gelöscht. Fortfahren?</value>
+  </data>
+  <data name="ChooseBookView_NewBookLabel_Text" xml:space="preserve">
+    <value>Neues Buch</value>
+  </data>
+  <data name="ChooseBookView_Title" xml:space="preserve">
+    <value>Buch Wählen</value>
+  </data>
+  <data name="ChooseMonthView_CancelButton_Content" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
+  <data name="ChooseMonthView_OkButton_Content" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ChooseMonthView_Title" xml:space="preserve">
+    <value>Monat Wählen</value>
+  </data>
+  <data name="ConfirmView_Title" xml:space="preserve">
+    <value>Bestätigung</value>
+  </data>
+  <data name="EditCategoriesView_AddCategoryButton_Content" xml:space="preserve">
+    <value>Hinzufügen</value>
+  </data>
+  <data name="EditCategoriesView_AddCategoryButton_ToolTip" xml:space="preserve">
+    <value>Kategorie Hinzufügen</value>
+  </data>
+  <data name="EditCategoriesView_DeleteCategoryButton_Content" xml:space="preserve">
+    <value>Löschen</value>
+  </data>
+  <data name="EditCategoriesView_DeleteCategoryButton_ToolTip" xml:space="preserve">
+    <value>Kategorie Löschen</value>
+  </data>
+  <data name="EditCategoriesView_DeleteConfirmText" xml:space="preserve">
+    <value>Die Kategorie "&lt;CATEGORY&gt;" des Buches "&lt;BOOKNAME&gt;" wird entfernt. Fortfahren?</value>
+  </data>
+  <data name="EditCategoriesView_NewCategoryLabel_Text" xml:space="preserve">
+    <value>Neue Kategorie</value>
+  </data>
+  <data name="EditCategoriesView_Title" xml:space="preserve">
+    <value>Kategorienbearbeitung "&lt;BOOKNAME&gt;"</value>
+  </data>
+  <data name="General_NoButton_Content" xml:space="preserve">
+    <value>Nein</value>
+  </data>
+  <data name="General_YesButton_Content" xml:space="preserve">
+    <value>Ja</value>
+  </data>
+  <data name="MainView_AmountLabel_Text" xml:space="preserve">
+    <value>Betrag</value>
+  </data>
+  <data name="MainView_ChangeMonthButton_Content" xml:space="preserve">
+    <value>M</value>
+  </data>
+  <data name="MainView_ChangeMonthButton_ToolTip" xml:space="preserve">
+    <value>Monat Wechseln</value>
+  </data>
+  <data name="MainView_ChooseBookButton_Content" xml:space="preserve">
+    <value>W</value>
+  </data>
+  <data name="MainView_ChooseBookButton_ToolTip" xml:space="preserve">
+    <value>Buch Wählen</value>
+  </data>
+  <data name="MainView_CreateEntryButton_Content" xml:space="preserve">
+    <value>Eintrag Erstellen</value>
+  </data>
+  <data name="MainView_DefaultBookName" xml:space="preserve">
+    <value>Standard</value>
+  </data>
+  <data name="MainView_DeleteEntryButton_Content" xml:space="preserve">
+    <value>L</value>
+  </data>
+  <data name="MainView_DeleteEntryButton_ToolTip" xml:space="preserve">
+    <value>Eintrag Löschen</value>
+  </data>
+  <data name="MainView_EditCategoriesButton_Content" xml:space="preserve">
+    <value>B</value>
+  </data>
+  <data name="MainView_EditCategoriesButton_ToolTip" xml:space="preserve">
+    <value>Kategorien Bearbeiten</value>
+  </data>
+  <data name="MainView_EntriesDataGrid_Header_Amount" xml:space="preserve">
+    <value>Betrag</value>
+  </data>
+  <data name="MainView_EntriesDataGrid_Header_Category" xml:space="preserve">
+    <value>Kategorie</value>
+  </data>
+  <data name="MainView_EntriesDataGrid_Header_Date" xml:space="preserve">
+    <value>Datum</value>
+  </data>
+  <data name="MainView_EntriesDataGrid_Header_MemoText" xml:space="preserve">
+    <value>Memo</value>
+  </data>
+  <data name="MainView_EntryTypes_Deposit" xml:space="preserve">
+    <value>Einzahlung</value>
+  </data>
+  <data name="MainView_EntryTypes_Payout" xml:space="preserve">
+    <value>Auszahlung</value>
+  </data>
+  <data name="MainView_MemoTextLabel_Text" xml:space="preserve">
+    <value>Memotext</value>
+  </data>
+  <data name="MainView_NextMonthButton_Content" xml:space="preserve">
+    <value>&gt;</value>
+  </data>
+  <data name="MainView_NextMonthButton_ToolTip" xml:space="preserve">
+    <value>Nächster Monat</value>
+  </data>
+  <data name="MainView_PreviousMonthButton_Content" xml:space="preserve">
+    <value>&lt;</value>
+  </data>
+  <data name="MainView_PreviousMonthButton_ToolTip" xml:space="preserve">
+    <value>Vorheriger Monat</value>
+  </data>
+  <data name="MainView_Title" xml:space="preserve">
     <value>BOHA - Haushaltsbuch</value>
   </data>
 </root>
